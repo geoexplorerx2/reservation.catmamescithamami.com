@@ -1,1 +1,1 @@
-export {};
+export type { default as ToggleOptionType } from './ToggleOptionsType'
