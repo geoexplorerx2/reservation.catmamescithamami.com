@@ -1,8 +1,12 @@
 import React from 'react';
+import Toggle from '../Toogle/Toggle';
 
 const UserPersonalDataRegistry = () => {
   return (
-    <div>UserPersonalDataRegistry</div>
+    <div>
+      UserPersonalDataRegistry
+      <Toggle />  
+    </div>
   )
 };
 
