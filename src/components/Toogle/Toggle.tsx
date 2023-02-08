@@ -24,15 +24,17 @@ interface TooglePropsType {
 const Toggle: FC<TooglePropsType> = (props) => {
     const { options: optionsFromProps, onChange } = props
     const [options, setOptions] = useState(optionsFromProps ?? sampleOptions)
-    const [activeOption, setActiveOption] = useState(sampleOptions[0])
+    const [activeOption, setActiveOption] = useState(options[0])
     const handleChange = (option: ToggleOptionType) => {
         setActiveOption(option)
         onChange && onChange(option)
     } 
+
+    
   return (
-    <div className=' border-2 border-gray-500 p-[10px] relative '>
+    <div className='bg-white rounded-[10px] p-[10px] relative '>
         <div className='grid grid-cols-2 relative'>
-                <div className={`absolute w-1/2 h-full z-0 bg-[#800000] border border-orange-400 transition-all  ${activeOption.value === options[1].value ? 'translate-x-full' : ''}`}></div>
+                <div className={`absolute w-1/2 h-full z-0 bg-[#800000] border border-orange-400 transition-all rounded-[5px]  ${activeOption.value === options[1].value ? 'translate-x-full' : ''}`}></div>
             {
             options.slice(0,2).map((option, index) => {
                 const {label, value, id} = option
