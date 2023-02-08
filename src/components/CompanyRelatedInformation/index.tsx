@@ -1,0 +1,1 @@
+export { default as CompanyRelatedInformation } from './CompanyRelatedInformation';
