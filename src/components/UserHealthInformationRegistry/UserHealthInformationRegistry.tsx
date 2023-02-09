@@ -157,6 +157,25 @@ const sampleQuestions: Question[] = [
     needsExplanation: true,
     id: '8'
   },
+  {
+    title: 'Heart Proplems',
+    subtitle: 'Kalp Problemleri',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    needsExplanation: true,
+    id: '9'
+  },
 ]
 
 interface Answer {
@@ -201,19 +220,25 @@ return (
   <div className='w-full flex flex-col px-9 pt-5'>
     {
       sampleQuestions.map(question => {
-        const { title, subtitle, options, id } = question
+        const { title, subtitle, options, id, needsExplanation } = question
         return (
-          <div className='flex items-center justify-between mb-5 ' key={id}>
-            <div className='flex flex-col'>
-              <span className='text-base font-semibold'>
-                {title}
-              </span>
-              <span className='text-xs text-normal'>
-                {subtitle}
-              </span>
+          <div className='mb-5'>
+            <div className='flex items-center justify-between ' key={id}>
+              <div className='flex flex-col'>
+                <span className='text-base font-semibold'>
+                  {title}
+                </span>
+                <span className='text-xs text-normal'>
+                  {subtitle}
+                </span>
+              </div>
+              <Toggle options={options} outerWrapperClassNames='max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} defaultSelected='right' />
             </div>
-            <Toggle options={options} outerWrapperClassNames='max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} defaultSelected='right' />
-            
+              {
+                needsExplanation && (
+                    <input type='text' placeholder='Why and When' name='explanation' className='w-full rounded-[10px] h-[60px] mt-5' />
+                )
+              }
           </div>
         )
       })
