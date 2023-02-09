@@ -178,16 +178,20 @@ const sampleQuestions: Question[] = [
   },
 ]
 
+interface AnswerWithExplanation extends ToggleOptionType {
+  explanation?: string 
+}
+
 interface Answer {
   question: Question,
-  answer: ToggleOptionType,
+  answer: AnswerWithExplanation ,
   id: string
 }
 
 const UserHealthInformation = () => {
 
   const [answers, setAnswers] = useState<Answer[]>([])
-  const handleChange = (question: Question, option: ToggleOptionType) => {
+  const handleChange = (question: Question, option: ToggleOptionType, explanation?: string) => {
 
     let answersCopy = [...answers]
     const target = answersCopy.find((answer) => answer.id === question.id)
@@ -195,7 +199,8 @@ const UserHealthInformation = () => {
     if(target){
       answersCopy.map( answer => {
         if(answer.id === target.id){
-          answer.answer = option
+          answer.answer = option;
+          // explanation && answer.answer.explanation = explanation
           
         }
       }
