@@ -6,6 +6,7 @@ interface Question {
   title: string,
   subtitle: string,
   options: ToggleOptionType[],
+  needsExplanation?: boolean,
   id: string
 }
 
@@ -137,6 +138,25 @@ const sampleQuestions: Question[] = [
     ],
     id: '7'
   },
+  {
+    title: 'Heart Proplems',
+    subtitle: 'Kalp Problemleri',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    needsExplanation: true,
+    id: '8'
+  },
 ]
 
 interface Answer {
@@ -178,12 +198,12 @@ useEffect(() => {
 
 
 return (
-  <div className='w-full flex flex-col px-9 border-2 border-orange-400 pt-5'>
+  <div className='w-full flex flex-col px-9 pt-5'>
     {
       sampleQuestions.map(question => {
         const { title, subtitle, options, id } = question
         return (
-          <div className='flex items-center justify-between mb-5 border-2 border-pink-500 ' key={id}>
+          <div className='flex items-center justify-between mb-5 ' key={id}>
             <div className='flex flex-col'>
               <span className='text-base font-semibold'>
                 {title}
@@ -192,7 +212,8 @@ return (
                 {subtitle}
               </span>
             </div>
-            <Toggle options={options} outerWrapperClassNames='max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} />
+            <Toggle options={options} outerWrapperClassNames='max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} defaultSelected='right' />
+            
           </div>
         )
       })

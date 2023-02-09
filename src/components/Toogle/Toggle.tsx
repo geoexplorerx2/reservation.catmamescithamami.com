@@ -18,6 +18,7 @@ const sampleOptions: ToggleOptionType[] = [
 
 interface TooglePropsType {
     options?: ToggleOptionType[],
+    defaultSelected?: 'left' | 'right',
     onChange?: (option: ToggleOptionType) => void 
     outerWrapperClassNames?: string,
     labelClassNames?: string,
@@ -25,9 +26,18 @@ interface TooglePropsType {
 }
 
 const Toggle: FC<TooglePropsType> = (props) => {
-    const { options: optionsFromProps, onChange, outerWrapperClassNames, labelClassNames, optionWrapperClassNames } = props
+    const { options: optionsFromProps, onChange, outerWrapperClassNames, labelClassNames, optionWrapperClassNames, defaultSelected } = props
     const [options, setOptions] = useState(optionsFromProps ?? sampleOptions)
-    const [activeOption, setActiveOption] = useState(options[0])
+    const selectDefaultOption = () => {
+        let selectedItemIndex: number;
+        if(defaultSelected){
+            defaultSelected === 'left' ? selectedItemIndex = 0 : selectedItemIndex = 1
+        } else {
+            selectedItemIndex = 0
+        }
+        return options[selectedItemIndex] 
+    }
+    const [activeOption, setActiveOption] = useState(selectDefaultOption())
     const handleChange = (option: ToggleOptionType) => {
        
        option && setActiveOption(option)
