@@ -46,9 +46,17 @@
 }
 
 .react-international-phone-country-selector-dropdown {
-  z-index: 22;
+  z-index: 22 !important;
 }
 
-.react-international-phone-input-container .react-international-phone-input {
+.react-international-phone-input-container .react-international-phone-input, .react-international-phone-country-selector-button {
   border: unset !important;
+}
+
+.react-international-phone-country-selector-button:hover {
+  background-color: #fff !important;
+}
+
+input {
+  font-weight: bold;
 }
