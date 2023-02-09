@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+
+[type='text'], [type='email'], [type='date'], [type='tel'] {
+  border-width: 0;
+  --tw-ring-color: unset !important;
+  --tw-ring-shadow: unset !important;
+  border-color: unset !important;
+}
+
+.react-international-phone-country-selector-dropdown {
+  z-index: 22;
+}
+
+.react-international-phone-input-container .react-international-phone-input {
+  border: unset !important;
+}
