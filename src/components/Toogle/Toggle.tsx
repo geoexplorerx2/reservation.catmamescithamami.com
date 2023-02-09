@@ -29,7 +29,8 @@ const Toggle: FC<TooglePropsType> = (props) => {
     const [options, setOptions] = useState(optionsFromProps ?? sampleOptions)
     const [activeOption, setActiveOption] = useState(options[0])
     const handleChange = (option: ToggleOptionType) => {
-        setActiveOption(option)
+       
+       option && setActiveOption(option)
         onChange && onChange(option)
     } 
 
@@ -51,9 +52,6 @@ const Toggle: FC<TooglePropsType> = (props) => {
                 )
             })
             }
-            {/* <div className={`h-full bg-transparent p-3 px-11 flex items-center justify-center relative z-10 transition-all ${activeOption.value === 'secondOption' ? 'text-white' : ''}`} onClick={() => {setActiveOption('secondOption')}}>
-                    second option
-            </div> */}
         </div>
     </div>
   )

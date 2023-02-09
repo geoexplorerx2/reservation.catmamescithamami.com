@@ -22,7 +22,7 @@ const sampleOptions: ToggleOptionType[] = [
 const UserPersonalDataRegistry = () => {
   const [ selectedGender, setSelectedGender ] = useState<ToggleOptionType>()
 
-  const handleToggle = (gender: ToggleOptionType) => {
+  const handleToggle = (gender?: ToggleOptionType) => {
     setSelectedGender(gender)
   }
 
@@ -34,7 +34,7 @@ const UserPersonalDataRegistry = () => {
   return (
     <div>
       UserPersonalDataRegistry
-      <Toggle options={sampleOptions} onChange={handleToggle} />  
+      <Toggle options={sampleOptions} onChange={(e) => handleToggle(e)} />  
     </div>
   )
 };
