@@ -6,14 +6,8 @@ import { useStepper } from './hooks';
 import { Homepage } from './views';
 
 function App() {
-  const [updateStepsViews, setUpdateStepsViews] = useState<any>();
 
-  useEffect(() => {
-    
-    console.log("updateStepsViews" ,updateStepsViews)
-    
-  }, [updateStepsViews])
-  
+  const [updateStepsViews, setUpdateStepsViews] = useState<any>();
 
   return (
     <div className='min-h-screen overflow-hidden bg-[#EEEEEE]'>
