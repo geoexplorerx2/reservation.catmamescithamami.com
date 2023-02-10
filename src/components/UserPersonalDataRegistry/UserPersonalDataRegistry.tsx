@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import icon_person from "../../assets/icons/icon_1.svg";
 
 import icon_email from "../../assets/icons/icon_3.svg";
@@ -23,9 +23,17 @@ const genderOptions: ToggleOptionType[] = [
 ]
 
 const UserPersonalDataRegistry = () => {
+  const [toggleValue_1, SetToggleValue_1] = useState("")
+  const [toggleValue_2, SetToggleValue_2] = useState("")
+  
+  const handleChange_1 = (e:ToggleOptionType) => {
+    SetToggleValue_1(e?.label)
+    console.log(e?.label)
+  }
 
-  const handleChange = (e:ToggleOptionType) => {
-    console.log(e)
+  const handleChange_2 = (e:ToggleOptionType) => {
+    SetToggleValue_2(e?.label)
+    console.log(e?.label)
   }
   return (
     <div className='container font-poppins'>
@@ -39,14 +47,14 @@ const UserPersonalDataRegistry = () => {
         <div >
           <p className='text-sm font-medium mb-3'>Gender / Cinsiyetiniz</p>
           <div className='bg-white rounded-2xl flex justify-start items-center'>
-            <Toggle options={genderOptions} outerWrapperClassNames='max-w-50 ' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' />
+            <Toggle options={genderOptions} outerWrapperClassNames='max-w-50 ' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(e)=> handleChange_1(e)} />
           </div>
         </div>
 
         <div >
           <p className='text-sm font-medium mb-3'>Therapist Preference / Terapist Terchiniz</p>
           <div className='bg-white rounded-2xl flex justify-start items-center'>
-            <Toggle options={genderOptions} outerWrapperClassNames='max-w-50' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(e)=> handleChange(e)} />
+            <Toggle options={genderOptions} outerWrapperClassNames='max-w-50' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(e)=> handleChange_2(e)} />
           </div>
         </div>
 
