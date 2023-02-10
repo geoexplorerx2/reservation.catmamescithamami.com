@@ -46,9 +46,9 @@ const Toggle: FC<TooglePropsType> = (props) => {
 
     
   return (
-    <div className={`${outerWrapperClassNames} bg-white rounded-[10px] p-[10px] relative `}>
-        <div className='grid grid-cols-2 relative'>
-                <div className={`absolute w-1/2 h-full z-0 bg-[#800000] border border-orange-400 transition-all rounded-[5px]  ${activeOption.value === options[1].value ? 'translate-x-full' : ''}`}></div>
+    <div className={`${outerWrapperClassNames} bg-white rounded-[10px] p-[10px] relative w-full`}>
+        <div className='grid grid-cols-2 relative '>
+                <div className={`absolute w-1/2 h-full z-0 bg-[#800000] border transition-all rounded-[5px]  ${activeOption.value === options[1].value ? 'translate-x-full' : ''}`}></div>
             {
             options.slice(0,2).map((option, index) => {
                 const {label, value, id} = option
