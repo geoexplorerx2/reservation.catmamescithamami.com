@@ -240,6 +240,12 @@ const handleTextInputChange = (question: Question, explanation?: string ) => {
   setAnswers(answersCopy)
 }
 
+useEffect(() => {
+
+  console.log('here is the answers', answers)
+
+}, [answers])
+
 
 return (
   <div className='w-full flex flex-col px-9 pt-5'>
