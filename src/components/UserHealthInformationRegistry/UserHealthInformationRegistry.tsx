@@ -191,6 +191,8 @@ interface Answer {
 const UserHealthInformation = () => {
 
   const [answers, setAnswers] = useState<Answer[]>([])
+
+
   const handleChange = (question: Question, option: ToggleOptionType, explanation?: string) => {
 
     let answersCopy = [...answers]
@@ -200,7 +202,7 @@ const UserHealthInformation = () => {
       answersCopy.map( answer => {
         if(answer.id === target.id){
           answer.answer = option;
-          // explanation && answer.answer.explanation = explanation
+          // answer.answer.explanation = explanation
           
         }
       }
@@ -214,11 +216,29 @@ const UserHealthInformation = () => {
   }
 
 
-useEffect(() => {
+const handleTextInputChange = (question: Question, explanation?: string ) => {
+  let answersCopy = [...answers]
+  const target = answersCopy.find((answer) => answer.id === question.id)
+  // if target exists update the value of it otherwise add it to the answers array
+  if(target){
+    answersCopy.map( answer => {
+      if(answer.id === target.id){
+        answer.answer.explanation = explanation;
+        
+      }
+    }
+    )
+  } else {
+    answersCopy = [...answersCopy, { question: question, answer: {
+      label: 'Yes / Evet',
+      value: 'yes',
+      id: '1',
+      explanation: explanation
+    ,}, id: question.id }]
+  }
 
-  console.log('here is the answers', answers)
-
-}, [answers])
+  setAnswers(answersCopy)
+}
 
 
 return (
@@ -226,6 +246,7 @@ return (
     {
       sampleQuestions.map(question => {
         const { title, subtitle, options, id, needsExplanation } = question
+        const shouldTextInputBeVisible = answers.find((answer) => answer.id === question.id)?.answer.value === 'yes'
         return (
           <div className='mb-5'>
             <div className='flex items-center justify-between ' key={id}>
@@ -240,8 +261,8 @@ return (
               <Toggle options={options} outerWrapperClassNames='max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} defaultSelected='right' />
             </div>
               {
-                needsExplanation && (
-                    <input type='text' placeholder='Why and When' name='explanation' className='w-full rounded-[10px] h-[60px] mt-5' />
+                needsExplanation && shouldTextInputBeVisible && (
+                    <input type='text' placeholder='Why and When' name='explanation' className='w-full rounded-[10px] h-[60px] mt-5' onChange={(e) => handleTextInputChange(question, e.currentTarget?.value)}/>
                 )
               }
           </div>
