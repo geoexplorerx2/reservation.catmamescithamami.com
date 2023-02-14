@@ -37,7 +37,7 @@ const UserPersonalDataRegistry = () => {
   }
   return (
     <div className='container font-poppins'>
-      <form className='grid grid-cols-2 gap-10 mt-8'>
+      <form className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 mt-8'>
 
         <AnimatedInput label={'Name Surname / Adınız Soyadınız'} inputType={'text'} logo={icon_person} />        
         <TelInput />
