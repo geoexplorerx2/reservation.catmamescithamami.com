@@ -1,1 +1,1 @@
-export const IS_MOBILE_BREAKPOINTS: number = 768;
+export const IS_MOBILE_BREAKPOINTS: number = 766;
