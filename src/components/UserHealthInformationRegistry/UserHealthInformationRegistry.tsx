@@ -264,7 +264,7 @@ return (
                   {subtitle}
                 </span>
               </div>
-              <Toggle options={options} outerWrapperClassNames='max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} defaultSelected='right' />
+              <Toggle options={options} outerWrapperClassNames='max-w-[120px] md:max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} defaultSelected='right' />
             </div>
               {
                 needsExplanation && shouldTextInputBeVisible && (
