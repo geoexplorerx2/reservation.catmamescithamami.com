@@ -8,3 +8,13 @@
         @apply px-5 
     }
 }
+
+progress[value] {
+    width: 100%;
+    height: 4px;
+    transform: translateY(-450%)
+  }
+  progress[value]::-webkit-progress-value{
+    background-color: #800000;
+    transition: all 0.7s;
+  }
