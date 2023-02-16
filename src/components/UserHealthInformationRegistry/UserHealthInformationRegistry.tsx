@@ -11,172 +11,6 @@ interface Question {
 }
 
 
-const sampleQuestions: Question[] = [
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    id: '1'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    id: '2'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    id: '3'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    id: '4'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    id: '5'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    id: '6'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    id: '7'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    needsExplanation: true,
-    id: '8'
-  },
-  {
-    title: 'Heart Proplems',
-    subtitle: 'Kalp Problemleri',
-    options: [
-      {
-        label: 'Yes / Evet',
-        value: 'yes',
-        id: '1'
-      },
-      {
-        label: 'No / Hayır',
-        value: 'no',
-        id: '2'
-
-      }
-    ],
-    needsExplanation: true,
-    id: '9'
-  },
-]
 
 interface AnswerWithExplanation extends ToggleOptionType {
   explanation?: string 
@@ -278,5 +112,301 @@ return (
   </div>
 )
 };
+
+
+
+const sampleQuestions: Question[] = [
+  {
+    title: 'Heart Proplems',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '1'
+  },
+  {
+    title: 'High - Low Blood Pressure',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '2'
+  },
+  {
+    title: 'Varicose Veins',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '3'
+  },
+  {
+    title: 'Asthma',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '4'
+  },
+  {
+    title: 'Vertebral Proplems',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '5'
+  },
+  {
+    title: 'Other Joint Problems',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '6'
+  },
+  {
+    title: 'Fractures',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Skin Allergies',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Lodine Allergy',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Hyperthyroidism',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Diabetes',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Epilepsy',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Are you pregnant ?',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Do you have back problems ?',
+    subtitle: '',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    id: '7'
+  },
+  {
+    title: 'Have you ever tested positive for covid-19 ?',
+    subtitle: 'If yes, please provide the date.',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    needsExplanation: true,
+    id: '8'
+  },
+  {
+    title: 'Have you been surgically operated on ?',
+    subtitle: 'If yes, please explain the type of the surgery and the date.',
+    options: [
+      {
+        label: 'Yes / Evet',
+        value: 'yes',
+        id: '1'
+      },
+      {
+        label: 'No / Hayır',
+        value: 'no',
+        id: '2'
+
+      }
+    ],
+    needsExplanation: true,
+    id: '9'
+  },
+]
+
 
 export default UserHealthInformation;
