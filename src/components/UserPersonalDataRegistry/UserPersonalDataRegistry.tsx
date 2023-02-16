@@ -12,12 +12,12 @@ import BirthDateInput from './BirthDateInput';
 
 const genderOptions: ToggleOptionType[] = [ 
     {
-      label: 'Male / Erkek',
+      label: 'Male',
       value: 'yes',
       id: '1',
     },
     {
-      label: 'Female / Kadın',
+      label: 'Female',
       value: 'no',
       id: '2',
     }
@@ -40,21 +40,21 @@ const UserPersonalDataRegistry = () => {
     <div className='container font-poppins'>
       <form className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 mt-8'>
 
-        <AnimatedInput label={'Name Surname / Adınız Soyadınız'} inputType={'text'} logo={icon_person} />        
+        <AnimatedInput label={'Name Surname'} inputType={'text'} logo={icon_person} />        
         <TelInput />
-        <AnimatedInput label={'E-mail Address / E-posta Adresiniz'} inputType={'email'} logo={icon_email} />
+        <AnimatedInput label={'E-mail Address'} inputType={'email'} logo={icon_email} />
         {/* <AnimatedInput label={'Birthday / Doğum Tarihiniz'} inputType={'date'} logo={icon_date} /> */}
         <BirthDateInput />
         
         <div >
-          <p className='text-sm font-medium mb-3'>Gender / Cinsiyetiniz</p>
+          <p className='text-sm font-medium mb-3'>Gender</p>
           <div className='bg-white rounded-2xl flex justify-start items-center'>
             <Toggle options={genderOptions} outerWrapperClassNames='max-w-50 ' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(e)=> handleChange_1(e)} />
           </div>
         </div>
 
         <div >
-          <p className='text-sm font-medium mb-3'>Therapist Preference / Terapist Terchiniz</p>
+          <p className='text-sm font-medium mb-3'>Therapist Preference</p>
           <div className='bg-white rounded-2xl flex justify-start items-center'>
             <Toggle options={genderOptions} outerWrapperClassNames='max-w-50' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(e)=> handleChange_2(e)} />
           </div>

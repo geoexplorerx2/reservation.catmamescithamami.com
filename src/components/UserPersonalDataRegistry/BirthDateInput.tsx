@@ -58,7 +58,7 @@ const BirthDateInput = () => {
             </div>
             <label className={`${selectedDate ? "-translate-y-5 " : "" } ${!isFocused ? "" : ""} text-xs transition ease-out font-semibold absolute z-[9]`}>
                 <span>
-                 Birthday / Doğum Tarihiniz
+                 Birthday
                 </span>
             </label>
           </div>

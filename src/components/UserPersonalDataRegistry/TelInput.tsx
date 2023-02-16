@@ -35,7 +35,7 @@ const TelInput = () => {
         <img className='mr-6 w-5' src={icon_phone} alt="icon_phone" />
         <div className='relative flex items-center'>
             <label className={`${isFocused || phone.length ? "-translate-y-5 transition ease-out" : "" } ${!isFocused ? "transition ease-out" : ""} absolute z-[9] text-xs font-semibold`}>
-            Phone Number / Telefon Numaranız 
+            Phone Number  
             </label>
             <div onFocus={()=> onFocus()} onBlur={()=> onBlur()}  className={`${isFocused || phone.length ? "opacity-100" : "opacity-0"} translate-y-2 z-[11] transition ease-out`}>
                 <PhoneInput
