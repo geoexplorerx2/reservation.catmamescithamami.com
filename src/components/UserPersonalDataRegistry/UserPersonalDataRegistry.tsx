@@ -7,7 +7,8 @@ import { Question, ToggleOptionType } from '../../types';
 import Toggle from '../Toogle/Toggle';
 import AnimatedInput from './AnimatedInput';
 import TelInput from './TelInput';
-
+import { UiDatePicker } from '../../lib';
+import BirthDateInput from './BirthDateInput';
 
 const genderOptions: ToggleOptionType[] = [ 
     {
@@ -42,7 +43,8 @@ const UserPersonalDataRegistry = () => {
         <AnimatedInput label={'Name Surname / Adınız Soyadınız'} inputType={'text'} logo={icon_person} />        
         <TelInput />
         <AnimatedInput label={'E-mail Address / E-posta Adresiniz'} inputType={'email'} logo={icon_email} />
-        <AnimatedInput label={'Birthday / Doğum Tarihiniz'} inputType={'date'} logo={icon_date} />
+        {/* <AnimatedInput label={'Birthday / Doğum Tarihiniz'} inputType={'date'} logo={icon_date} /> */}
+        <BirthDateInput />
         
         <div >
           <p className='text-sm font-medium mb-3'>Gender / Cinsiyetiniz</p>
