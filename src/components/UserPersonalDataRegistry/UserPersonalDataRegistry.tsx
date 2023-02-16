@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import icon_person from "../../assets/icons/icon_1.svg";
 
 import icon_email from "../../assets/icons/icon_3.svg";
@@ -12,51 +12,94 @@ import BirthDateInput from './BirthDateInput';
 
 const genderOptions: ToggleOptionType[] = [ 
     {
-      label: 'Male / Erkek',
+      label: 'Male',
       value: 'yes',
       id: '1',
     },
     {
-      label: 'Female / Kadın',
+      label: 'Female',
       value: 'no',
       id: '2',
     }
-]
+];
 
-const UserPersonalDataRegistry = () => {
+interface UserPersonalDataRegistryProps {
+  handleChange?: any;
+};
+
+const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleChange }) => {
+
   const [toggleValue_1, SetToggleValue_1] = useState("")
   const [toggleValue_2, SetToggleValue_2] = useState("")
   
-  const handleChange_1 = (e:ToggleOptionType) => {
+  const handleChange_1 = (e: ToggleOptionType) => {
     SetToggleValue_1(e?.label)
     console.log(e?.label)
   }
 
-  const handleChange_2 = (e:ToggleOptionType) => {
+  const handleChange_2 = (e: ToggleOptionType) => {
     SetToggleValue_2(e?.label)
     console.log(e?.label)
-  }
+  };
+
+  const handleInputChange = (event: any, inputType: any = null) => {
+    handleChange && handleChange(event, inputType);
+  };
+
   return (
     <div className='container font-poppins'>
       <form className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 mt-8'>
 
-        <AnimatedInput label={'Name Surname / Adınız Soyadınız'} inputType={'text'} logo={icon_person} />        
-        <TelInput />
-        <AnimatedInput label={'E-mail Address / E-posta Adresiniz'} inputType={'email'} logo={icon_email} />
+        <AnimatedInput 
+           label={'Name Surname'} 
+           inputType={'text'} 
+           inputName='namesurname'
+           logo={icon_person}
+           onInputChange={(e: any)  => handleInputChange(e)} 
+        />  
+
+        <TelInput 
+           onInputChange={(e: any) => handleInputChange(e, 'telephone')} 
+        />
+
+        <AnimatedInput 
+           label={'E-mail Address'} 
+           inputType={'email'} 
+           inputName='email'
+           logo={icon_email} 
+           onInputChange={(e: any)  => handleChange(e)} 
+        />
+
         {/* <AnimatedInput label={'Birthday / Doğum Tarihiniz'} inputType={'date'} logo={icon_date} /> */}
-        <BirthDateInput />
-        
-        <div >
-          <p className='text-sm font-medium mb-3'>Gender / Cinsiyetiniz</p>
+        <BirthDateInput 
+          onInputChange={(e: any) => handleInputChange(e, 'bithdate')}
+        />
+
+        <div>
+          <p className='text-sm font-medium mb-3'>Gender</p>
           <div className='bg-white rounded-2xl flex justify-start items-center'>
-            <Toggle options={genderOptions} outerWrapperClassNames='max-w-50 ' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(e)=> handleChange_1(e)} />
+            <Toggle 
+               options={genderOptions} 
+               outerWrapperClassNames='max-w-50' 
+               labelClassNames='text-xs font-semibold' 
+               optionWrapperClassNames='px-5' 
+               onChange={(e: any) => handleInputChange(e.label?.toLowerCase(), 'gender')}
+               //  onChange={(e)=> handleChange_1(e)} 
+            />
           </div>
         </div>
 
         <div >
-          <p className='text-sm font-medium mb-3'>Therapist Preference / Terapist Terchiniz</p>
+          <p className='text-sm font-medium mb-3'>Therapist Preference</p>
           <div className='bg-white rounded-2xl flex justify-start items-center'>
-            <Toggle options={genderOptions} outerWrapperClassNames='max-w-50' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(e)=> handleChange_2(e)} />
+            <Toggle 
+               options={genderOptions} 
+               outerWrapperClassNames='max-w-50' 
+               labelClassNames='text-xs font-semibold' 
+               optionWrapperClassNames='px-5' 
+               onChange={(e: any) => handleInputChange(e.label?.toLowerCase(), 'therapist')}
+               //  onChange={(e)=> handleChange_2(e)} 
+            />
           </div>
         </div>
 

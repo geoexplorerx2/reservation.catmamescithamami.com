@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { ToggleOptionType } from '../../types';
 import Toggle from '../Toogle/Toggle';
 
@@ -188,7 +188,11 @@ interface Answer {
   id: string
 }
 
-const UserHealthInformation = () => {
+interface UserHealthInformationProps {
+  handleToggleChange?: any;
+};
+
+const UserHealthInformation: FC<UserHealthInformationProps> = ({handleToggleChange}) => {
 
   const [answers, setAnswers] = useState<Answer[]>([])
 
@@ -213,7 +217,7 @@ const UserHealthInformation = () => {
 
     setAnswers(answersCopy)
     
-  }
+  };
 
 
 const handleTextInputChange = (question: Question, explanation?: string ) => {
@@ -230,7 +234,7 @@ const handleTextInputChange = (question: Question, explanation?: string ) => {
     )
   } else {
     answersCopy = [...answersCopy, { question: question, answer: {
-      label: 'Yes / Evet',
+      label: 'Yes',
       value: 'yes',
       id: '1',
       explanation: explanation
@@ -238,12 +242,10 @@ const handleTextInputChange = (question: Question, explanation?: string ) => {
   }
 
   setAnswers(answersCopy)
-}
+};
 
 useEffect(() => {
-
-  console.log('here is the answers', answers)
-
+  console.log('here is the answers', answers);
 }, [answers])
 
 
@@ -264,7 +266,14 @@ return (
                   {subtitle}
                 </span>
               </div>
-              <Toggle options={options} outerWrapperClassNames='max-w-[120px] md:max-w-[240px]' labelClassNames='text-xs font-semibold' optionWrapperClassNames='px-5' onChange={(option) => handleChange(question, option)} defaultSelected='right' />
+              <Toggle 
+                options={options} 
+                outerWrapperClassNames='max-w-[120px] md:max-w-[240px]' 
+                labelClassNames='text-xs font-semibold' 
+                optionWrapperClassNames='px-5' 
+                onChange={(option) => handleChange(question, option)} 
+                defaultSelected='right' 
+              />
             </div>
               {
                 needsExplanation && shouldTextInputBeVisible && (

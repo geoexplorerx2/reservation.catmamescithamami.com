@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { UiDatePicker } from '../../lib';
+import React, { FC, useEffect, useRef, useState } from 'react'
 import icon_date from "../../assets/icons/icon_4.svg";
 import { createStyles } from '@mantine/core';
+import { UiDatePicker } from '../../lib';
 
-
-
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles((theme: any) => ({
     input: {
         backgroundColor: 'transparent',
         border: 'none'
@@ -13,21 +11,24 @@ const useStyles = createStyles((theme) => ({
     dropdown: {
         transform: 'translateX(-50px) !important'
     }
-})) 
+})) ;
 
-const BirthDateInput = () => {
+interface BirthDateInputProps {
+  onInputChange?: any;
+};
+
+const BirthDateInput: FC<BirthDateInputProps> = ({onInputChange}) => {
 
   const[isFocused, setIsFocused] = useState(false);
   const[selectedDate, setSelectedDate] = useState()
 
-
   const DatepickerRef = useRef<HTMLInputElement>(null)
-  const {classes} = useStyles()
-
+  const { classes } = useStyles();
 
   const onChange= (e:any) => {
     setSelectedDate(e);
-  }
+    onInputChange && onInputChange(e, 'birthdate');
+  };
 
   const Focus = () => {
     setIsFocused(true);
@@ -47,18 +48,19 @@ const BirthDateInput = () => {
           <img className='mr-6 w-5' src={icon_date} alt={'calendar_icon'} />
           <div className='relative flex items-center'>
             <div className='relative z-20 bg-transparent'>
-             <UiDatePicker 
+             <UiDatePicker
+                name="birthdate"
                 value={selectedDate} 
                 onChange={onChange}
                 ref={DatepickerRef} 
                 onFocus={Focus} 
                 onBlur={onBlur} 
                 classNames={{input: classes.input, dropdown: classes.dropdown}} 
-                />
+              />
             </div>
             <label className={`${selectedDate ? "-translate-y-5 " : "" } ${!isFocused ? "" : ""} text-xs transition ease-out font-semibold absolute z-[9]`}>
                 <span>
-                 Birthday / Doğum Tarihiniz
+                 Birthdate
                 </span>
             </label>
           </div>
