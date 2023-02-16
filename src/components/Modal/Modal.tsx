@@ -32,8 +32,8 @@ const Modal: FC<ModalType> = ({ show, children, closeModal }) => {
       }, [show]);
 
     return (
-        <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-25 transition-all duration-500 ${show ? 'block opacity-100' : 'opacity-0 hidden'}`} ref={overlayRef}>
-        <section className="fixed bg-white w-4/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 transition-all" ref={modalPanelRef}>
+        <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-25 transition-opacity duration-500 ${show ? 'block opacity-100 z-10' : 'z-[-1] opacity-0 '}`} ref={overlayRef}>
+        <section className="fixed bg-white w-4/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 rounded-[10px] transition-all" ref={modalPanelRef}>
             {children}
         </section>
         </div>
