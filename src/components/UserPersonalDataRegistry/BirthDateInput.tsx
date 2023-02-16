@@ -60,7 +60,7 @@ const BirthDateInput: FC<BirthDateInputProps> = ({onInputChange}) => {
             </div>
             <label className={`${selectedDate ? "-translate-y-5 " : "" } ${!isFocused ? "" : ""} text-xs transition ease-out font-semibold absolute z-[9]`}>
                 <span>
-                 Birthdate
+                 Birth date
                 </span>
             </label>
           </div>
