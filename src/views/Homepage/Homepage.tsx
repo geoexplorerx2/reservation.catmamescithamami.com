@@ -28,15 +28,15 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
       );
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
-  
+
   // handle registry
   function _handleRegistry() {
     let registryData = {
-      name_surname: 'jknf',
-      phone: 'asldkf',
+      name_surname: values?.namesurname,
+      phone: values?.telephone,
       country: 'sdlkfm',
-      email: 'alksdfm',
-      birthday: 'leskd',
+      email: values?.email,
+      birthday: values?.birthdate,
       gender: 'wekdfml',
       therapist_gender: 'aeldkfm',
       heart_problems: 'kmlae',
