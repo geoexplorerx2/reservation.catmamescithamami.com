@@ -5,22 +5,26 @@ import { STEPPER_VIEWS } from '../constants';
 
 interface MasterFooterProps{
   onStepViewChange?: Function;
+  hasErrors?: any;
 };
 
-const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange}) => {
+const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors}) => {
 	const [currentStep, setCurrentStep] = useState<number>(1);
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
+
   const { stepperSteps } = useStepper({
     steps: STEPPER_VIEWS, 
     currentStepNumber: currentStep
   });
-  
+    
   // handle steper on step view
   const handleStepper = (type: string) => {
-    let nextStep = currentStep;
-    type == 'next' ? nextStep++ : nextStep--;
-
-    if(nextStep > 0 && nextStep <= STEPPER_VIEWS?.length) setCurrentStep(nextStep); 
+    if(Object.keys(hasErrors).length === 0){
+      let nextStep = currentStep;
+      type == 'next' ? nextStep++ : nextStep--;
+  
+      if(nextStep > 0 && nextStep <= STEPPER_VIEWS?.length) setCurrentStep(nextStep); 
+    }
   };
 
   // update view callback
@@ -55,7 +59,7 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange}) => {
                     onClick={() => handleStepper('')}
                   >
                     <span className="text-[16px] text-[#800000] font-poppins font-semibold leading-[24px]">
-                      Previous / Onceki
+                      Previous
                     </span>
                   </ButtonPrimary>
                 }
@@ -67,7 +71,7 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange}) => {
                   onClick={() => handleStepper('next')}
                 >
                     <span className="text-[16px] text-[#FFFFFF] font-poppins font-semibold leading-[24px]">
-                      Continue / Devam Et
+                      Continue
                     </span>
                 </ButtonPrimary>
               </div>

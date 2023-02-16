@@ -5,9 +5,10 @@ import { post } from "./request";
 class Services {
 
     public registry = (registry: any): Promise<any> => {
+        // const formdata = new FormData(registry);
         return new Promise((resolve, reject) => {
             return post({
-                url: ``,
+                url: `medicalform/store`,
                 body: registry
             }).then(resolve).catch(this.handleError.bind(null, reject));
         });
