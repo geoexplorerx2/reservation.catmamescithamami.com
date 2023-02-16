@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useState } from 'react';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 import icon_phone from "../../assets/icons/icon_2.svg";
 
 interface TooglePropsType {
-}
+  onInputChange?: any;
+};
 
-const TelInput = () => {
+interface TelInputProps {
+  onInputChange?: any;
+};
+
+const TelInput: FC<TelInputProps> = ({ onInputChange }) => {
     
   const [phone, setPhone] = useState('');
   const [isFocused, setIsFocused]= useState(false);
@@ -16,6 +21,7 @@ const TelInput = () => {
   const onChange= (e:any) => {
     setPhone(phone)
     setInputValue(e);
+    onInputChange && onInputChange(e);
   }
 
   const onFocus = () => {
@@ -35,13 +41,17 @@ const TelInput = () => {
         <img className='mr-6 w-5' src={icon_phone} alt="icon_phone" />
         <div className='relative flex items-center'>
             <label className={`${isFocused || phone.length ? "-translate-y-5 transition ease-out" : "" } ${!isFocused ? "transition ease-out" : ""} absolute z-[9] text-xs font-semibold`}>
-            Phone Number / Telefon Numaranız 
+              Phone Number
             </label>
-            <div onFocus={()=> onFocus()} onBlur={()=> onBlur()}  className={`${isFocused || phone.length ? "opacity-100" : "opacity-0"} translate-y-2 z-[11] transition ease-out`}>
+            <div 
+              onFocus={()=> onFocus()} 
+              onBlur={()=> onBlur()} 
+              className={`${isFocused || phone.length ? "opacity-100" : "opacity-0"} translate-y-2 z-[11] transition ease-out`}
+            >
                 <PhoneInput
-                initialCountry="tr"
-                value={inputValue}
-                onChange={(e)=> onChange(e)}
+                  initialCountry="tr"
+                  value={inputValue}
+                  onChange={(e)=> onChange(e)}
                 />
             </div>
         </div>

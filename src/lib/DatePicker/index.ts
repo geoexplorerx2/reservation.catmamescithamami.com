@@ -1,0 +1,1 @@
+export { DatePicker as UiDatePicker } from '@mantine/dates';
