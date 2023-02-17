@@ -65,7 +65,7 @@ const Toggle: FC<TooglePropsType> = (props) => {
                 const shortenedLabel = label.split(' ')[0]
                 
                 return (
-                    <div className={`${optionWrapperClassNames} h-full bg-transparent flex items-center justify-center relative z-10 transition-all py-3 md:px-11 whitespace-nowrap ${activeOption.value === options[index].value  ? 'text-white' : '' }`} onClick={() => {handleChange(option)}} key={id}>
+                    <div className={`${optionWrapperClassNames} cursor-pointer h-full bg-transparent flex items-center justify-center relative z-10 transition-all py-3 md:px-11 whitespace-nowrap ${activeOption.value === options[index].value  ? 'text-white' : '' }`} onClick={() => {handleChange(option)}} key={id}>
                         <span className={`${labelClassNames}`}>
                             {isMobile ? shortenedLabel : label}
                         </span> 
