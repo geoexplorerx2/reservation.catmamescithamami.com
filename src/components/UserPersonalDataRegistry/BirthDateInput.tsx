@@ -15,9 +15,10 @@ const useStyles = createStyles((theme: any) => ({
 
 interface BirthDateInputProps {
   onInputChange?: any;
+  errors?: any;
 };
 
-const BirthDateInput: FC<BirthDateInputProps> = ({onInputChange}) => {
+const BirthDateInput: FC<BirthDateInputProps> = ({onInputChange, errors}) => {
 
   const[isFocused, setIsFocused] = useState(false);
   const[selectedDate, setSelectedDate] = useState()
@@ -32,22 +33,27 @@ const BirthDateInput: FC<BirthDateInputProps> = ({onInputChange}) => {
 
   const Focus = () => {
     setIsFocused(true);
-  }
+  };
 
   const onBlur = () => {
     setIsFocused(false);
-  }
+  };
 
   useEffect(() => {
     console.log('this is the slected Date,', selectedDate)
-  } ,
-  [selectedDate])
+  },[selectedDate])
 
   return (
       <div className='bg-white py-3 px-8 rounded-2xl flex justify-start items-center'>
           <img className='mr-6 w-5' src={icon_date} alt={'calendar_icon'} />
           <div className='relative flex items-center'>
             <div className='relative z-20 bg-transparent'>
+            {
+              errors.bithdate && 
+              <div>
+                {errors.bithdate}
+              </div>
+            }
              <UiDatePicker
                 name="birthdate"
                 value={selectedDate} 

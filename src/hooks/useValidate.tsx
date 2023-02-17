@@ -11,7 +11,7 @@ const useValidate = (values: any, type: any) => {
             };
 
             if(!values.bithdate){
-                errors.bithdate = 'Telephone is required';
+                errors.bithdate = 'Birthdate is required';
             };
 
             // if(!values.gender){
