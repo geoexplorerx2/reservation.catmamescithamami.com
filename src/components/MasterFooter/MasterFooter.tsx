@@ -7,10 +7,11 @@ import { STEPPER_VIEWS } from '../constants';
 interface MasterFooterProps {
   onStepViewChange?: Function;
   hasErrors?: any;
+  completeRegistry?: any
 };
 
-const MasterFooter: FC<MasterFooterProps> = ({ onStepViewChange, hasErrors }) => {
-  const [currentStep, setCurrentStep] = useState<number>(1);
+const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, completeRegistry}) => {
+	const [currentStep, setCurrentStep] = useState<number>(1);
   const isMobile = useIsMobile();
 
   // @ts-ignore
@@ -20,15 +21,42 @@ const MasterFooter: FC<MasterFooterProps> = ({ onStepViewChange, hasErrors }) =>
     steps: STEPPER_VIEWS,
     currentStepNumber: currentStep
   });
-
-  // handle steper on step view
-  const handleStepper = (type: string) => {
-    if (Object.keys(hasErrors).length === 0) {
+    
+  const goToNextStep = (type: string) => {
+    if(Object.keys(hasErrors).length === 0){
       let nextStep = currentStep;
       type == 'next' ? nextStep++ : nextStep--;
 
       if (nextStep > 0 && nextStep <= STEPPER_VIEWS?.length) setCurrentStep(nextStep);
     }
+  }
+
+  const goToPrevStep = () => {
+    if(Object.keys(hasErrors).length === 0){
+      let nextStep = currentStep -1;
+     
+
+      if (nextStep > 0 && nextStep <= STEPPER_VIEWS?.length) setCurrentStep(nextStep);
+    }
+  }
+
+  // handle steper on step view
+  const handleStepper = async (type: string) => {
+    const isCompleteRegistrationStep = currentStep === 3
+    if(isCompleteRegistrationStep){
+     const response = await completeRegistry()
+     console.log('this is the response: ', response)
+     const wasRegistrationSucccessfull = response?.status === 200;
+     if(wasRegistrationSucccessfull){
+      goToNextStep(type)
+     } else {
+      console.error(`the request was unsuccessfull ${response}`)
+     }
+     return
+    }
+
+    goToNextStep(type)
+    
   };
 
   // update view callback
@@ -60,7 +88,7 @@ const MasterFooter: FC<MasterFooterProps> = ({ onStepViewChange, hasErrors }) =>
                   <ButtonPrimary
                     type="button"
                     className='w-[240px] h-[60px] bg-[#EEEEEE] rounded-[10px]'
-                    onClick={() => handleStepper('')}
+                    onClick={() => goToPrevStep()}
                   >
                     <span className="text-[16px] text-[#800000] font-poppins font-semibold leading-[24px]">
                       {t("previous")}
@@ -75,7 +103,7 @@ const MasterFooter: FC<MasterFooterProps> = ({ onStepViewChange, hasErrors }) =>
                 onClick={() => handleStepper('next')}
               >
                 <span className="text-[16px] text-[#FFFFFF] font-poppins font-semibold leading-[24px]">
-                  {t("continue")}
+                  {currentStep === 3 ? t("Submit") : t("continue")}
                 </span>
               </ButtonPrimary>
             </div>

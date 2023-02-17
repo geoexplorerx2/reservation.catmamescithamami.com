@@ -13,12 +13,12 @@ const useForm = (callback: any, validate: any, formType: any) => {
     
 
     // submit if no errors
-    useEffect(() => {
-        if (Object.keys(errors).length === 0 && isSubmitting) {
-            callback();
-        }
-    }, [errors]);
-
+    // useEffect(() => {
+    //     if(Object.keys(errors).length === 0 && isSubmitting){
+    //         callback();
+    //     }
+    // }, [errors]);
+    
     const handleSubmit = () => {
         // if(event) event.preventDefault();
         setErrors(
