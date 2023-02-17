@@ -32,10 +32,6 @@ const TelInput: FC<TelInputProps> = ({ onInputChange }) => {
     setIsFocused(false);
   }
 
-  useEffect (() => {
-    console.log('focus is: ', isFocused);
-  }, [isFocused])
-  
   return (
     <div className='bg-white py-3 px-8 rounded-2xl flex justify-start items-center relative cursor-pointer'  >
         <img className='mr-6 w-5' src={icon_phone} alt="icon_phone" />

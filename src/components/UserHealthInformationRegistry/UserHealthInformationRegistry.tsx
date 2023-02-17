@@ -7,6 +7,7 @@ interface Question {
   subtitle: string,
   options: ToggleOptionType[],
   needsExplanation?: boolean,
+  explanationId?: string
   id: string
 }
 
@@ -51,31 +52,37 @@ const UserHealthInformation: FC<UserHealthInformationProps> = ({handleToggleChan
 
     setAnswers(answersCopy)
     
+    handleToggleChange(option ,question.id)
+    
   };
 
 
 const handleTextInputChange = (question: Question, explanation?: string ) => {
-  let answersCopy = [...answers]
-  const target = answersCopy.find((answer) => answer.id === question.id)
-  // if target exists update the value of it otherwise add it to the answers array
-  if(target){
-    answersCopy.map( answer => {
-      if(answer.id === target.id){
-        answer.answer.explanation = explanation;
+  // let answersCopy = [...answers]
+  // const target = answersCopy.find((answer) => answer.id === question.id)
+  // // if target exists update the value of it otherwise add it to the answers array
+  // if(target){
+  //   answersCopy.map( answer => {
+  //     if(answer.id === target.id){
+  //       answer.answer.explanation = explanation;
         
-      }
-    }
-    )
-  } else {
-    answersCopy = [...answersCopy, { question: question, answer: {
-      label: 'Yes',
-      value: 'yes',
-      id: '1',
-      explanation: explanation
-    ,}, id: question.id }]
-  }
+  //     }
+  //   }
+  //   )
+  // } else {
+  //   answersCopy = [...answersCopy, { question: question, answer: {
+  //     label: 'Yes',
+  //     value: 'yes',
+  //     id: '1',
+  //     explanation: explanation
+  //   ,}, id: question.id }]
+  // }
 
-  setAnswers(answersCopy)
+  // setAnswers(answersCopy)
+
+  handleToggleChange(explanation, question.explanationId)
+
+
 };
 
 useEffect(() => {
@@ -141,7 +148,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '1'
+    id: 'heart_problems'
   },
   {
     title: 'High - Low Blood Pressure',
@@ -159,7 +166,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '2'
+    id: 'blood_pressure'
   },
   {
     title: 'Varicose Veins',
@@ -177,7 +184,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '3'
+    id: 'varicose_veins'
   },
   {
     title: 'Asthma',
@@ -195,7 +202,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '4'
+    id: 'asthma'
   },
   {
     title: 'Vertebral Proplems',
@@ -213,7 +220,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '5'
+    id: 'vertebral_problem'
   },
   {
     title: 'Other Joint Problems',
@@ -231,7 +238,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '6'
+    id: 'joint_problems'
   },
   {
     title: 'Fractures',
@@ -249,7 +256,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'fractures'
   },
   {
     title: 'Skin Allergies',
@@ -267,7 +274,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'skin_allergies'
   },
   {
     title: 'Lodine Allergy',
@@ -285,7 +292,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'lodine_allergies'
   },
   {
     title: 'Hyperthyroidism',
@@ -303,7 +310,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'hyperthyroidism'
   },
   {
     title: 'Diabetes',
@@ -321,7 +328,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'diabetes'
   },
   {
     title: 'Epilepsy',
@@ -339,7 +346,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'epilepsy'
   },
   {
     title: 'Are you pregnant ?',
@@ -357,7 +364,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'pregnant'
   },
   {
     title: 'Do you have back problems ?',
@@ -375,7 +382,7 @@ const sampleQuestions: Question[] = [
 
       }
     ],
-    id: '7'
+    id: 'back_problems'
   },
   {
     title: 'Have you ever tested positive for covid-19 ?',
@@ -394,7 +401,8 @@ const sampleQuestions: Question[] = [
       }
     ],
     needsExplanation: true,
-    id: '8'
+    id: 'covid',
+    explanationId: 'covid_note'
   },
   {
     title: 'Have you been surgically operated on ?',
@@ -413,7 +421,8 @@ const sampleQuestions: Question[] = [
       }
     ],
     needsExplanation: true,
-    id: '9'
+    id: 'surgery',
+    explanationId: 'surgery_note'
   },
 ]
 

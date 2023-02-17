@@ -16,6 +16,10 @@ interface HomepageProps{
 
 const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
   const server = services;
+  const activeStep = updateStepsViews?.find((step: any) => step.completed == false && step.display == true)
+  const activeStepFormatted = activeStep?.view.toLowerCase().replaceAll(' ', '')
+  
+  
   const {
     values,
     errors,
@@ -24,8 +28,23 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
   } = useForm(
          _handleRegistry, 
          useValidate, 
-         'userpersonalinformation'
+         activeStepFormatted ?? 'userpersonaldataregistry'
       );
+
+
+    useEffect(() => {
+      console.log('erorrs are: ', errors)
+    } ,
+    [errors])
+    useEffect(() => {
+      console.log('activeStep are: ', activeStep, 'and the name is: ', activeStepFormatted)
+    } ,
+    [activeStep])
+
+    useEffect(() => {
+      console.log( 'updateStepsViews', updateStepsViews)
+    } ,
+    [updateStepsViews])
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
   
