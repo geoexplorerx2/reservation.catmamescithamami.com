@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useForm = (callback: any, validate: any, formType: any ) => {
+const useForm = (callback: any, validate: any, formType: any) => {
 
     const [values, setValues] = useState<any>({});
     const [errors, setErrors] = useState<any>({});
@@ -9,27 +9,28 @@ const useForm = (callback: any, validate: any, formType: any ) => {
 
     // submit if no errors
     useEffect(() => {
-        if(Object.keys(errors).length === 0 && isSubmitting){
+        if (Object.keys(errors).length === 0 && isSubmitting) {
             callback();
         }
     }, [errors]);
-    
+
     const handleSubmit = () => {
         // if(event) event.preventDefault();
         setErrors(
             validate(
-                values, 
+                values,
                 formType
-             )
-            );
+            )
+        );
         setIsSubmitting(true);
     };
 
     const handleChange = (event: any, inputType: any) => {
         // event.persist();
-        if(inputType){
+        if (inputType) {
             setValues((value: any) => (
-                { ...value, 
+                {
+                    ...value,
                     [inputType]: event
                 })
             );
@@ -37,7 +38,8 @@ const useForm = (callback: any, validate: any, formType: any ) => {
         };
 
         setValues((value: any) => (
-            { ...value, 
+            {
+                ...value,
                 [event.target.name]: event.target.value
             })
         );

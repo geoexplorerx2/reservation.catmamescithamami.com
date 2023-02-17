@@ -1,15 +1,16 @@
 import React, { FC, useEffect } from 'react'
 import services from '../../api/services';
-import { 
-  CompanyRelatedInformation, 
-  RegistryEnd, 
-  UserHealthInformationRegistry, 
-  UserPersonalDataRegistry } from '../../components';
+import {
+  CompanyRelatedInformation,
+  RegistryEnd,
+  UserHealthInformationRegistry,
+  UserPersonalDataRegistry
+} from '../../components';
 import { STEPPER_VIEWS } from '../../components/constants';
 import { useForm, useValidate } from '../../hooks';
 
 
-interface HomepageProps{
+interface HomepageProps {
   updateStepsViews?: any;
   onError?: any
 };
@@ -22,15 +23,15 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
     handleChange,
     handleSubmit
   } = useForm(
-         _handleRegistry, 
-         useValidate, 
-         'userpersonalinformation'
-      );
+    _handleRegistry,
+    useValidate,
+    'userpersonalinformation'
+  );
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
 
-  console.log({values}, {errors}, {updateStepsViews});
-  
+  console.log({ values }, { errors }, { updateStepsViews });
+
   // handle registry
   function _handleRegistry() {
     let registryData = {
@@ -62,7 +63,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
     };
 
     // service call 
-    if(completedSteps?.length == 3 && Object.keys(errors).length === 0){
+    if (completedSteps?.length == 3 && Object.keys(errors).length === 0) {
       server.registry(
         registryData
       );
@@ -72,49 +73,49 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
   };
 
   useEffect(() => {
-    if(completedSteps?.length == 3 && Object.keys(errors).length === 0) _handleRegistry(); 
+    if (completedSteps?.length == 3 && Object.keys(errors).length === 0) _handleRegistry();
   }, [updateStepsViews]);
-  
+
   // handle submit 
   useEffect(() => {
-     handleSubmit()
+    handleSubmit()
   }, [values]);
-  
+
   // handle errros cb
   useEffect(() => {
     onError && onError(errors);
   }, [errors])
-  
+
   return (
     <div className='flex justify-center'>
-     {updateStepsViews?.map((stepview: any, index: number) => (
-      <>
-        {
-          // STEPPER_VIEWS.includes(stepview) && 
-          STEPPER_VIEWS.indexOf(stepview.view) == 0 &&
-          stepview.display &&
-          <UserPersonalDataRegistry handleChange = {(event: any, type: any) => handleChange(event, type) } errors = { errors } />
-        }
-        {
-          // STEPPER_VIEWS.includes(stepview) && 
-          STEPPER_VIEWS.indexOf(stepview.view) == 1 &&
-          stepview.display &&
-          <UserHealthInformationRegistry handleToggleChange = {(event: any, type: any) => handleChange(event, type) } />
-        }
-        {
-          // STEPPER_VIEWS.includes(stepview) && 
-          STEPPER_VIEWS.indexOf(stepview.view) == 2 &&
-          stepview.display &&
-          <CompanyRelatedInformation />
-        }
-        {
-          // STEPPER_VIEWS.includes(stepview) && 
-          STEPPER_VIEWS.indexOf(stepview.view) == 3 &&
-          stepview.display &&
-          <RegistryEnd />
-        }
-      </>
-     ))}
+      {updateStepsViews?.map((stepview: any, index: number) => (
+        <>
+          {
+            // STEPPER_VIEWS.includes(stepview) && 
+            STEPPER_VIEWS.indexOf(stepview.view) == 0 &&
+            stepview.display &&
+            <UserPersonalDataRegistry handleChange={(event: any, type: any) => handleChange(event, type)} errors={errors} />
+          }
+          {
+            // STEPPER_VIEWS.includes(stepview) && 
+            STEPPER_VIEWS.indexOf(stepview.view) == 1 &&
+            stepview.display &&
+            <UserHealthInformationRegistry handleToggleChange={(event: any, type: any) => handleChange(event, type)} />
+          }
+          {
+            // STEPPER_VIEWS.includes(stepview) && 
+            STEPPER_VIEWS.indexOf(stepview.view) == 2 &&
+            stepview.display &&
+            <CompanyRelatedInformation />
+          }
+          {
+            // STEPPER_VIEWS.includes(stepview) && 
+            STEPPER_VIEWS.indexOf(stepview.view) == 3 &&
+            stepview.display &&
+            <RegistryEnd />
+          }
+        </>
+      ))}
     </div>
   )
 };
