@@ -6,12 +6,12 @@ const useValidate = (values: any, type: any) => {
                 errors.namesurname = 'Name surname is required';
             };
 
-            if(!values.telephone){
-                errors.telephone = 'Telephone is required';
+            if (!values.telephone) {
+                errors.telephone = 'Phone Number is required';
             };
 
-            if(!values.bithdate){
-                errors.bithdate = 'Birthdate is required';
+            if (!values.bithdate) {
+                errors.bithdate = 'Birth date is required';
             };
 
             // if(!values.gender){
@@ -22,10 +22,10 @@ const useValidate = (values: any, type: any) => {
             //     errors.therapist = 'Therapist is required';
             // };
 
-            if(!values.email){
+            if (!values.email) {
                 errors.email = 'Email address is required';
-            } else if(!/\S+@\S+\.\S+/.test(values.email)) {
-                errors.email = 'Email address is invalid';
+            } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+                errors.email = 'E-mail address is invalid';
             }
 
             break;
@@ -40,7 +40,7 @@ const useValidate = (values: any, type: any) => {
             
         default:
             break;
-    };  
+    };
 
     return errors;
 };

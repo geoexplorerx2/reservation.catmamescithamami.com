@@ -15,7 +15,7 @@ const RegistryEnd = () => {
         <p className='text-lg text-center max-w-[500px]'>
           Here is the classic lorem ipsum passage followed by Boparai’s odd, yet mesmerizing version.
         </p>
-        <button onClick={() => refreshPage()} className='border-2 border-[#800000] bg-[#800000] rounded-lg text-white py-5 px-10'>Start Again</button>
+        <button onClick={() => refreshPage()} className='border-2 border-[#800000] bg-[#800000] rounded-lg text-white py-5 px-10'>Create a New Reservation</button>
     </div>
   )
 };

@@ -1,15 +1,16 @@
 import React, { FC, useEffect } from 'react'
 import services from '../../api/services';
-import { 
-  CompanyRelatedInformation, 
-  RegistryEnd, 
-  UserHealthInformationRegistry, 
-  UserPersonalDataRegistry } from '../../components';
+import {
+  CompanyRelatedInformation,
+  RegistryEnd,
+  UserHealthInformationRegistry,
+  UserPersonalDataRegistry
+} from '../../components';
 import { STEPPER_VIEWS } from '../../components/constants';
 import { useForm, useValidate } from '../../hooks';
 
 
-interface HomepageProps{
+interface HomepageProps {
   updateStepsViews?: any;
   onError?: any
 };
@@ -82,7 +83,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
 
     console.log('the registryData', registryData)
     // service call 
-    if(completedSteps?.length == 3 && Object.keys(errors).length === 0){
+    if (completedSteps?.length == 3 && Object.keys(errors).length === 0) {
       server.registry(
         registryData
       ).then((res: any) => {
@@ -94,19 +95,19 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
   };
 
   useEffect(() => {
-    if(completedSteps?.length == 3 && Object.keys(errors).length === 0) _handleRegistry(); 
+    if (completedSteps?.length == 3 && Object.keys(errors).length === 0) _handleRegistry();
   }, [updateStepsViews]);
-  
+
   // handle submit 
   useEffect(() => {
-     handleSubmit()
+    handleSubmit()
   }, [values]);
-  
+
   // handle errros cb
   useEffect(() => {
     onError && onError(errors);
   }, [errors])
-  
+
   return (
     <div className='flex justify-center h-full overflow-y-scroll'>
      {updateStepsViews?.map((stepview: any, index: number) => (
