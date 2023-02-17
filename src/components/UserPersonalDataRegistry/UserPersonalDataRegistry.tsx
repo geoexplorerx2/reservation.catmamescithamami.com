@@ -105,7 +105,7 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
               labelClassNames='text-xs font-semibold'
               optionWrapperClassNames='px-5'
               onChange={(e: any) => handleInputChange(e.label?.toLowerCase(), 'therapist')}
-            //  onChange={(e)=> handleChange_2(e)} 
+              // onChange={(e)=> handleChange_2(e)} 
             />
           </div>
         </div>
