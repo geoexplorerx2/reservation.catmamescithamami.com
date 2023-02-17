@@ -62,8 +62,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
       blood_pressure: values?.blood_pressure,
       varicose_veins: values?.varicose_veins,
       asthma: values?.asthma,
-      vertebral_problem: values?.vertebral_problem
-      ,
+      vertebral_problem: values?.vertebral_problem,
       joint_problems: values?.joint_problems,
       fractures: values?.fractures,
       skin_allergies: values?.skin_allergies,
@@ -77,12 +76,13 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
       covid_note: values?.covid_note,
       surgery: values?.surgery,
       surgery_note: values?.surgery_note,
+      isTermsOfServiceAccepted: values?.isTermsOfServiceAccepted
 
     };
 
     console.log('the registryData', registryData)
     // service call 
-    if(completedSteps?.length == 3 && Object.keys(errors).length === 0){
+    if(completedSteps?.length == 3 && Object.keys(errors).length === 0 && values.isTermsOfServiceAccepted){
       server.registry(
         registryData
       ).then((res: any) => {
