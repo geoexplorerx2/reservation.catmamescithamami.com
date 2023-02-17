@@ -3,7 +3,7 @@ const useValidate = (values: any, type: any) => {
     switch (type) {
         case 'userpersonalinformation':
             if(!values.namesurname){
-                errors.username = 'Name surname is required';
+                errors.namesurname = 'Name surname is required';
             };
 
             if(!values.telephone){

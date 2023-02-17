@@ -6,13 +6,16 @@ interface InfoProps extends InputHTMLAttributes<HTMLInputElement> {
   logo: string;
   inputName?: string;
   onInputChange?: any;
+  errors?: any;
 };
 
 const AnimatedInput: FC<InfoProps> = (props) => {
-  const {label, inputType, logo, inputName, onInputChange} = props
+  const {label, inputType, logo, inputName, onInputChange, errors} = props
 
   const[isFocused, setIsFocused] = useState(false);
   const[inputValue, setInputValue] = useState("");
+
+  const errorkeys = Object.keys(errors);
 
   const onChange= (e:any) => {
     setInputValue(e.target.value);
@@ -39,6 +42,7 @@ const AnimatedInput: FC<InfoProps> = (props) => {
             <label className={`${isFocused || inputValue.length > 0 ? "-translate-y-5 transition ease-out" : "" } ${!isFocused ? "transition ease-out" : ""} text-xs font-semibold absolute z-[9]`}>
               {label} 
             </label>
+
             <input 
               type={inputType} 
               value={inputValue} 
@@ -48,7 +52,15 @@ const AnimatedInput: FC<InfoProps> = (props) => {
               onBlur={()=> onBlur()} 
               className={`${isFocused || inputValue.length ? "opacity-100" : "opacity-0"} transition ease-out bg-transparent border-0 focus:border-0 mt-4`} 
             />
+            {
+             inputName &&
+             errorkeys.includes(inputName) && 
+              <div>
+                {errors[inputName]}
+              </div>
+            }
           </div>
+          
         </div>
   )
 }

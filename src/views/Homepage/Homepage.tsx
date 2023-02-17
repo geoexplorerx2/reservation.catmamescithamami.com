@@ -29,6 +29,8 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
 
+  console.log({values}, {errors}, {updateStepsViews});
+  
   // handle registry
   function _handleRegistry() {
     let registryData = {
@@ -91,7 +93,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
           // STEPPER_VIEWS.includes(stepview) && 
           STEPPER_VIEWS.indexOf(stepview.view) == 0 &&
           stepview.display &&
-          <UserPersonalDataRegistry handleChange = {(event: any, type: any) => handleChange(event, type) } />
+          <UserPersonalDataRegistry handleChange = {(event: any, type: any) => handleChange(event, type) } errors = { errors } />
         }
         {
           // STEPPER_VIEWS.includes(stepview) && 
