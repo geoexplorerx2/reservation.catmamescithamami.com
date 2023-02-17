@@ -1,15 +1,16 @@
 import React, { FC, useEffect } from 'react'
 import services from '../../api/services';
-import { 
-  CompanyRelatedInformation, 
-  RegistryEnd, 
-  UserHealthInformationRegistry, 
-  UserPersonalDataRegistry } from '../../components';
+import {
+  CompanyRelatedInformation,
+  RegistryEnd,
+  UserHealthInformationRegistry,
+  UserPersonalDataRegistry
+} from '../../components';
 import { STEPPER_VIEWS } from '../../components/constants';
 import { useForm, useValidate } from '../../hooks';
 
 
-interface HomepageProps{
+interface HomepageProps {
   updateStepsViews?: any;
   onError?: any,
   handleChange?: any,
@@ -124,7 +125,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError, handleChange, 
           // STEPPER_VIEWS.includes(stepview) && 
           STEPPER_VIEWS.indexOf(stepview.view) == 0 &&
           stepview.display &&
-          <UserPersonalDataRegistry handleChange = {(event: any, type: any) => handleChange(event, type) } errors = { errors } />
+          <UserPersonalDataRegistry handleChange = {(event: any, type: any) => handleChange(event, type) } errors = { errors } values={values} />
         }
         {
           // STEPPER_VIEWS.includes(stepview) && 
