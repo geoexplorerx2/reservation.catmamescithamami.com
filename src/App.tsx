@@ -10,7 +10,7 @@ function App() {
   const [hasErrors, setHasErrors] = useState<any>();
 
   return (
-    <div className='min-h-screen overflow-hidden bg-[#EEEEEE]'>
+    <div className='h-screen overflow-hidden bg-[#EEEEEE]'>
       <MasterHeader stepsState={updateStepsViews} />
         <Homepage updateStepsViews = { updateStepsViews } onError = {(errors: any) => setHasErrors(errors)} />
       <MasterFooter onStepViewChange={(updatestepviews: any) => setUpdateStepsViews(updatestepviews)} hasErrors = { hasErrors }  />

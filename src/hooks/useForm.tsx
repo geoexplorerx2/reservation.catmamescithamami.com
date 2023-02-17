@@ -7,6 +7,11 @@ const useForm = (callback: any, validate: any, formType: any ) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
 
+    useEffect(() => {
+        console.log('form validation values', values)
+    }, [values])
+    
+
     // submit if no errors
     useEffect(() => {
         if(Object.keys(errors).length === 0 && isSubmitting){

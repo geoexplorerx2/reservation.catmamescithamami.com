@@ -34,7 +34,7 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors}) => {
   
   return (
     <>
-      <div className={`${currentStep == STEPPER_VIEWS.length && 'hidden'} sticky top-[100vh] bottom-0 w-full h-[100px] backdrop-blur-2xl bg-[#FFFFFF] bg-opacity-70 shadow-md backdrop-filter border-t-4 border-[#CBCBCB]`}>
+      <div className={`${currentStep == STEPPER_VIEWS.length && 'hidden'} sticky bottom-0 left-0 w-full h-[100px] backdrop-blur-2xl bg-[#FFFFFF] bg-opacity-70 shadow-md backdrop-filter border-t-4 border-[#CBCBCB]`}>
       <progress value={currentStep} max={4} className='text-[#CBCBCB] transition-all'></progress>
           <div className={`container flex ${currentStep == 1 && 'justify-center'}`}> 
 

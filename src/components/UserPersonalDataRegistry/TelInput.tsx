@@ -33,10 +33,6 @@ const TelInput: FC<TelInputProps> = ({ onInputChange, errors }) => {
     setIsFocused(false);
   };
 
-  useEffect (() => {
-    console.log('focus is: ', isFocused);
-  }, [isFocused])
-  
   return (
     <div className='bg-white py-3 px-8 rounded-2xl flex justify-start items-center relative cursor-pointer'  >
       {
