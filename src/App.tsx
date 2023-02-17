@@ -19,15 +19,14 @@ function App() {
     handleChange,
     handleSubmit
   } = useForm(
-         _handleRegistry, 
-         useValidate, 
-         activeStepFormatted ?? 'userpersonaldataregistry'
-      );
+    _handleRegistry,
+    useValidate,
+    activeStepFormatted ?? 'userpersonaldataregistry'
+  );
 
-
-      useEffect(() => {
-        console.log('registryData values are: ', values)
-      } ,[values])
+  // useEffect(() => {
+  //   console.log('registryData values are: ', values)
+  // }, [values])
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
 
@@ -60,61 +59,66 @@ function App() {
       surgery: values?.surgery ?? 'no' ,
       surgery_note: values?.surgery_note ?? '',
       // isTermsOfServiceAccepted: values?.isTermsOfServiceAccepted ?? false
-
     };
-    
+
     // service call 
-    if(completedSteps?.length == 3 && Object.keys(errors).length === 0 && values.isTermsOfServiceAccepted){
-     return server.registry(
+    if (completedSteps?.length == 3 && Object.keys(errors).length === 0 && values.isTermsOfServiceAccepted) {
+      return server.registry(
         registryData
       ).then((res: any) => {
-        console.log(res);
-        return {status: res?.status, payload: res}
-      }).catch( error => {
-        console.log(error)
-        return {status: 'unsuccesfull', payload: error}
+        return { 
+          status: res?.status, 
+          payload: res 
+        }
+      }).catch(error => {
+        return { 
+          status: 'unsuccesfull', 
+          payload: error 
+        }
       })
     }
-
-    // console.log({values}, {errors}, {updateStepsViews});
   };
 
 
-  const completeRegistration  = () => {
+  const completeRegistration = () => {
     const isCompleteRegistrationStep = completedSteps?.length == 3
     const noErorrs = Object.keys(errors).length === 0
-    if( isCompleteRegistrationStep && noErorrs ) return _handleRegistry(); 
+    if (isCompleteRegistrationStep && noErorrs) return _handleRegistry();
   }
 
   // useEffect(() => {
   //   if(completedSteps?.length == 3 && Object.keys(errors).length === 0) _handleRegistry(); 
   // }, [updateStepsViews]);
-  
+
   // handle submit 
   useEffect(() => {
-     handleSubmit()
+    handleSubmit()
   }, [values]);
-  
+
   // handle errros cb
   // useEffect(() => {
   //   onError && onError(errors);
   // }, [errors])
   useEffect(() => {
-     setHasErrors(errors);
+    setHasErrors(errors);
   }, [errors])
-  
+
 
 
   return (
     <div className='h-screen overflow-hidden bg-[#EEEEEE]'>
       <MasterHeader stepsState={updateStepsViews} />
-        <Homepage updateStepsViews = { updateStepsViews } 
-          // onError = {(errors: any) => setHasErrors(errors)}
-          handleChange={handleChange}
-          errors={errors}
-          values={values}
-           />
-      <MasterFooter onStepViewChange={(updatestepviews: any) => setUpdateStepsViews(updatestepviews)} hasErrors = { hasErrors } completeRegistry={completeRegistration} />
+      <Homepage updateStepsViews={updateStepsViews}
+        // onError = {(errors: any) => setHasErrors(errors)}
+        handleChange={handleChange}
+        errors={errors}
+        values={values}
+      />
+      <MasterFooter 
+        onStepViewChange={(updatestepviews: any) => setUpdateStepsViews(updatestepviews)} 
+        hasErrors={hasErrors} 
+        completeRegistry={completeRegistration} 
+      />
     </div>
   );
 };
