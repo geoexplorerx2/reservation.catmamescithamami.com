@@ -19,11 +19,11 @@ const MasterHeader: FC<MasterHeaderProps> = (props) => {
   return (
     <div className={`${ isLastStep ? 'hidden' : '' } z-30 w-full h-[150px] sticky top-0 left-0 backdrop-blur-2xl bg-[#FFFFFF] bg-opacity-70 shadow-md backdrop-filter`}>
         <div className="container flex justify-between">
-            <div className='mx-9 p-9'>
+            <div className='py-9'>
               <Logo img= { catmamescithammamLogo }   />
             </div>
-            <div className='mx-9 p-14'>
-              <LanguagePicker openDropdownMenu={openDropdownMenu} setOpenDropdownMenu={setOpenDropdownMenu} icon={undefined} modeLight={undefined}  />
+            <div className='py-14'>
+              <LanguagePicker openDropdownMenu={openDropdownMenu} setOpenDropdownMenu={setOpenDropdownMenu}  />
             </div>
         </div>
     </div>

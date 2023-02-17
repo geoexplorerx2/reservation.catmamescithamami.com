@@ -6,11 +6,6 @@ import { ReactComponent as Chevron } from '../../assets/icons/chevron-down.svg';
 interface LanguagePickerProps{
     openDropdownMenu: any,
     setOpenDropdownMenu: any,
-    icon: ReactNode;
-    // handleButtonClick: any;
-    modeLight: any;
-    languages?: any;
-    data?: any;
 };
 
 export const Languages = [
