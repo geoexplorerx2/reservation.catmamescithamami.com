@@ -61,21 +61,23 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
         />  
 
         <TelInput 
-           onInputChange={(e: any) => handleInputChange(e, 'telephone')} 
+          onInputChange={(e: any) => handleInputChange(e, 'telephone')}
+          errors = { errors }
         />
 
         <AnimatedInput 
-           label={'E-mail Address'} 
-           inputType={'email'} 
-           inputName='email'
-           logo={icon_email} 
-           onInputChange={(e: any)  => handleChange(e)} 
-           errors = { errors } 
+          label={'E-mail Address'} 
+          inputType={'email'} 
+          inputName='email'
+          logo={icon_email} 
+          onInputChange={(e: any)  => handleChange(e)} 
+          errors = { errors } 
         />
 
         {/* <AnimatedInput label={'Birthday / Doğum Tarihiniz'} inputType={'date'} logo={icon_date} /> */}
         <BirthDateInput 
           onInputChange={(e: any) => handleInputChange(e, 'bithdate')}
+          errors = { errors } 
         />
 
         <div>

@@ -10,7 +10,9 @@ class Services {
             return post({
                 url: `medicalform/store`,
                 body: registry
-            }).then(resolve).catch(this.handleError.bind(null, reject));
+            }).then((res: any) => {
+                resolve(res);
+            }).catch(this.handleError.bind(null, reject));
         });
     };
 
