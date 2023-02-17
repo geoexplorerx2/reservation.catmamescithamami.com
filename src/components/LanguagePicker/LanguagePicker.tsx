@@ -141,7 +141,7 @@ const LanguagePicker: FC<LanguagePickerProps> = ({openDropdownMenu, setOpenDropd
                   <div className="flex justify-arround mx-2">
                     <ButtonPrimary
                         type="button"
-                        className = {`${activeLang.id == lang.id ? 'bg-[#3944b3] text-[white] ':'bg-[#fff] text-[#000]'} rounded-[8px] hover:border-[#3944B3]  border-2 border-[rgba(57, 68, 179, 20%)] flex justify-arround w-[106px] h-[50px] dark:text-white`} 
+                        className = {`${activeLang.id == lang.id ? 'bg-[#EEEEEE] text-[white] ':'bg-[#fff] text-[#000]'} rounded-[8px] hover:border-[#3944B3]  border-2 border-[rgba(57, 68, 179, 20%)] flex justify-arround w-[106px] h-[50px] dark:text-white`} 
                         onClick={() => handleLan(lang.id)} 
                     >
                         <span className="text-[16px] text-[#800000] font-poppins font-semibold leading-[24px]">

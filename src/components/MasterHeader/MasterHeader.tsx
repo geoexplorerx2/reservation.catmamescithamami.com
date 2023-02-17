@@ -22,7 +22,7 @@ const MasterHeader: FC<MasterHeaderProps> = (props) => {
             <div className='mx-9 p-9'>
               <Logo img= { catmamescithammamLogo }   />
             </div>
-            <div className='mx-9 p-14'>
+            <div className='py-14'>
               <LanguagePicker openDropdownMenu={openDropdownMenu} setOpenDropdownMenu={setOpenDropdownMenu} icon={undefined} modeLight={undefined}  />
             </div>
         </div>
