@@ -25,6 +25,9 @@ function App() {
       );
 
 
+      useEffect(() => {
+        console.log('registryData values are: ', values)
+      } ,[values])
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
 

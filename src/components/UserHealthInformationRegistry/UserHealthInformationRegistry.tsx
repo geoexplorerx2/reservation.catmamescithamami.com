@@ -52,7 +52,7 @@ const UserHealthInformation: FC<UserHealthInformationProps> = ({handleToggleChan
 
     setAnswers(answersCopy)
     
-    handleToggleChange(option ,question.id)
+    handleToggleChange(option.value ,question.id)
     
   };
 
