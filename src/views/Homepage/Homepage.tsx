@@ -29,8 +29,6 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
 
-  // console.log({values}, {errors}, {updateStepsViews});
-  
   // handle registry
   function _handleRegistry() {
     let registryData = {
@@ -38,7 +36,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
       phone: values?.telephone,
       country: 'sdlkfm',
       email: values?.email,
-      birthday: "kjsndf",
+      birthday: new Date(values?.bithdate).toLocaleDateString().replaceAll('/', '-'),
       gender: 'wekdfml',
       therapist_gender: 'aeldkfm',
       heart_problems: 'kmlae',
