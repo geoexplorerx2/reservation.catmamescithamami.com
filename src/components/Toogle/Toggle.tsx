@@ -30,7 +30,8 @@ interface TooglePropsType {
 const Toggle: FC<TooglePropsType> = (props) => {
     const { options: optionsFromProps, onChange, outerWrapperClassNames, labelClassNames, optionWrapperClassNames, defaultSelected, values } = props
     const [options, setOptions] = useState(optionsFromProps ?? sampleOptions)
-    const isMobile = useIsMobile()
+    const isMobile = useIsMobile();
+
     const selectDefaultOption = () => {
         let selectedItemIndex: number;
         if(defaultSelected){
@@ -39,13 +40,14 @@ const Toggle: FC<TooglePropsType> = (props) => {
             selectedItemIndex = 0
         }
         return options[selectedItemIndex] 
-    }
-    const [activeOption, setActiveOption] = useState(selectDefaultOption())
+    };
+
+    const [activeOption, setActiveOption] = useState(selectDefaultOption());
+
     const handleChange = (option: ToggleOptionType) => {
-       
        option && setActiveOption(option)
-        onChange && onChange(option)
-    } 
+       onChange && onChange(option)
+    };
 
     useEffect(()=> {
         console.log('values', values)
