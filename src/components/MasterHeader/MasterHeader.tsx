@@ -19,7 +19,7 @@ const MasterHeader: FC<MasterHeaderProps> = (props) => {
   return (
     <div className={`${ isLastStep ? 'hidden' : '' } z-10 w-full h-[150px] sticky top-0 left-0 backdrop-blur-2xl bg-[#FFFFFF] bg-opacity-70 shadow-md backdrop-filter`}>
         <div className="container flex justify-between">
-            <div className='mx-9 p-9'>
+            <div className='py-9'>
               <Logo img= { catmamescithammamLogo }   />
             </div>
             <div className='py-14'>
