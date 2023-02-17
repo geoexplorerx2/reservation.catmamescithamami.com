@@ -6,11 +6,6 @@ import ButtonPrimary from '../../lib/Button/ButtonPrimary';
 interface LanguagePickerProps{
     openDropdownMenu: any,
     setOpenDropdownMenu: any,
-    icon: ReactNode;
-    // handleButtonClick: any;
-    modeLight: any;
-    languages?: any;
-    data?: any;
 };
 
 export const Languages = [
