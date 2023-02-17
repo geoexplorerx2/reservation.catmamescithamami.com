@@ -25,19 +25,6 @@ function App() {
       );
 
 
-    // useEffect(() => {
-    //   console.log('erorrs are: ', errors)
-    // } ,
-    // [errors])
-    // useEffect(() => {
-    //   console.log('activeStep are: ', activeStep, 'and the name is: ', activeStepFormatted)
-    // } ,
-    // [activeStep])
-
-    // useEffect(() => {
-    //   console.log( 'updateStepsViews', updateStepsViews)
-    // } ,
-    // [updateStepsViews])
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
 
