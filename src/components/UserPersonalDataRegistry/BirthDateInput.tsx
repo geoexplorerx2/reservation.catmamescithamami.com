@@ -18,9 +18,10 @@ interface BirthDateInputProps {
   onInputChange?: any;
   errors?: any;
   inputName?: string;
+  values?: any;
 };
 
-const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputName }) => {
+const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputName, values }) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const [selectedDate, setSelectedDate] = useState()
@@ -55,7 +56,7 @@ const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputN
         <div className='relative z-20 bg-transparent'>
           <UiDatePicker
             name={inputName}
-            value={selectedDate}
+            value={values[inputName ?? '']}
             onChange={onChange}
             ref={DatepickerRef}
             onFocus={Focus}
@@ -63,7 +64,7 @@ const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputN
             classNames={{ input: classes.input, dropdown: classes.dropdown }}
           />
         </div>
-        <label className={`${selectedDate ? "-translate-y-5 " : ""} ${!isFocused ? "" : ""} text-xs transition ease-out font-semibold absolute z-[9]`}>
+        <label className={`${values[inputName ?? ''] ? "-translate-y-5 " : ""} ${!isFocused ? "" : ""} text-xs transition ease-out font-semibold absolute z-[9]`}>
           <span>
             Birth date
           </span>

@@ -12,20 +12,19 @@ interface TelInputProps {
   onInputChange?: any;
   errors?: any;
   inputName?: string;
+  values?: any;
 };
 
-const TelInput: FC<TelInputProps> = ({ onInputChange, errors, inputName }) => {
+const TelInput: FC<TelInputProps> = ({ onInputChange, errors, inputName, values }) => {
 
   const [phone, setPhone] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-  const [inputValue, setInputValue] = useState("");
 
   const errorKeys = Object.keys(errors);
 
   const onChange = (e: any) => {
     setPhone(e)
     console.log('phone :', phone)
-    setInputValue(e);
     onInputChange && onInputChange(e);
   };
 
@@ -45,17 +44,17 @@ const TelInput: FC<TelInputProps> = ({ onInputChange, errors, inputName }) => {
     <div className={`bg-white py-3 px-8 rounded-2xl flex justify-start items-center relative ${errorKeys.includes(inputName ?? "") ? " border-2 border-[#800000]" : ""}`} >
       <img className='mr-6 w-5' src={icon_phone} alt="icon_phone" />
       <div className='relative flex items-center'>
-        <label className={`${isFocused || phone ? "-translate-y-5 transition ease-out" : ""} ${!isFocused ? "transition ease-out" : ""} absolute z-[9] text-xs font-semibold`}>
+        <label className={`${isFocused || values[inputName ?? ''] ? "-translate-y-5 transition ease-out" : ""} ${!isFocused ? "transition ease-out" : ""} absolute z-[9] text-xs font-semibold`}>
           Phone Number
         </label>
         <div
           onFocus={() => onFocus()}
           onBlur={() => onBlur()}
-          className={`${isFocused || phone.length ? "opacity-100" : "opacity-0"} cursor-pointer translate-y-2 z-[11] transition ease-out`}
+          className={`${isFocused || values[inputName ?? ''] ? "opacity-100" : "opacity-0"} cursor-pointer translate-y-2 z-[11] transition ease-out`}
         >
           <PhoneInput
             initialCountry="tr"
-            value={inputValue}
+            value={values[inputName ?? '']}
             onChange={(e) => onChange(e)}
           />
         </div>

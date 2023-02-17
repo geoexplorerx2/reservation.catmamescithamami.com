@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import icon_person from "../../assets/icons/icon_1.svg";
 
 import icon_email from "../../assets/icons/icon_3.svg";
@@ -26,9 +26,10 @@ const genderOptions: ToggleOptionType[] = [
 interface UserPersonalDataRegistryProps {
   handleChange?: any;
   errors?: any;
+  values?: any;
 };
 
-const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleChange, errors }) => {
+const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleChange, errors, values }) => {
 
   const [toggleValue_1, SetToggleValue_1] = useState("")
   const [toggleValue_2, SetToggleValue_2] = useState("")
@@ -47,6 +48,11 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
     handleChange && handleChange(event, inputType);
   };
 
+  useEffect(()=> {
+    console.log('values', values)
+})
+
+
   return (
     <div className='container font-poppins h-[calc(100%_-_250px)] overflow-y-scroll'>
       <form className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 mt-8'>
@@ -58,12 +64,14 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
           logo={icon_person}
           onInputChange={(e: any) => handleInputChange(e)}
           errors={errors}
+          values={values}
         />
 
         <TelInput
           onInputChange={(e: any) => handleInputChange(e, 'telephone')}
           errors={errors}
           inputName='telephone'
+          values={values}
         />
 
         <AnimatedInput
@@ -73,6 +81,7 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
           logo={icon_email}
           onInputChange={(e: any) => handleChange(e)}
           errors={errors}
+          values={values}
         />
 
         {/* <AnimatedInput label={'Birthday / Doğum Tarihiniz'} inputType={'date'} logo={icon_date} /> */}
@@ -80,6 +89,7 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
           onInputChange={(e: any) => handleInputChange(e, 'bithdate')}
           errors={errors}
           inputName='bithdate'
+          values={values}
         />
 
         <div>
@@ -91,6 +101,8 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
               labelClassNames='text-xs font-semibold'
               optionWrapperClassNames='px-5'
               onChange={(e: any) => handleInputChange(e.label?.toLowerCase(), 'gender')}
+              values={values.gender}
+              defaultSelected= {values.gender === 'male' ? 'left' : 'right'}
             //  onChange={(e)=> handleChange_1(e)} 
             />
           </div>
@@ -105,6 +117,8 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
               labelClassNames='text-xs font-semibold'
               optionWrapperClassNames='px-5'
               onChange={(e: any) => handleInputChange(e.label?.toLowerCase(), 'therapist')}
+              values={values.gender}
+              defaultSelected= {values.therapist === 'male' ? 'left' : 'right'}
             //  onChange={(e)=> handleChange_2(e)} 
             />
           </div>
