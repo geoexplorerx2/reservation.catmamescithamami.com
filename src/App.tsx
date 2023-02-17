@@ -109,6 +109,7 @@ function App() {
           // onError = {(errors: any) => setHasErrors(errors)}
           handleChange={handleChange}
           errors={errors}
+          values={values}
            />
       <MasterFooter onStepViewChange={(updatestepviews: any) => setUpdateStepsViews(updatestepviews)} hasErrors = { hasErrors } completeRegistry={completeRegistration} />
     </div>

@@ -31,13 +31,22 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, compl
     }
   }
 
+  const goToPrevStep = () => {
+    if(Object.keys(hasErrors).length === 0){
+      let nextStep = currentStep -1;
+     
+
+      if (nextStep > 0 && nextStep <= STEPPER_VIEWS?.length) setCurrentStep(nextStep);
+    }
+  }
+
   // handle steper on step view
   const handleStepper = async (type: string) => {
     const isCompleteRegistrationStep = currentStep === 3
     if(isCompleteRegistrationStep){
      const response = await completeRegistry()
      console.log('this is the response: ', response)
-     const wasRegistrationSucccessfull = response.status === 200;
+     const wasRegistrationSucccessfull = response?.status === 200;
      if(wasRegistrationSucccessfull){
       goToNextStep(type)
      } else {
@@ -79,7 +88,7 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, compl
                   <ButtonPrimary
                     type="button"
                     className='w-[240px] h-[60px] bg-[#EEEEEE] rounded-[10px]'
-                    onClick={() => handleStepper('')}
+                    onClick={() => goToPrevStep()}
                   >
                     <span className="text-[16px] text-[#800000] font-poppins font-semibold leading-[24px]">
                       {t("previous")}

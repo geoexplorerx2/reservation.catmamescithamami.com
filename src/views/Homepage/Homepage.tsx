@@ -14,10 +14,11 @@ interface HomepageProps {
   updateStepsViews?: any;
   onError?: any,
   handleChange?: any,
-  errors?: any
+  errors?: any,
+  values: any
 };
 
-const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError, handleChange, errors }) => {
+const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError, handleChange, errors, values }) => {
   // const server = services;
   // const activeStep = updateStepsViews?.find((step: any) => step.completed == false && step.display == true)
   // const activeStepFormatted = activeStep?.view.toLowerCase().replaceAll(' ', '')
