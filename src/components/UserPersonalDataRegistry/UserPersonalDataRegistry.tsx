@@ -25,9 +25,10 @@ const genderOptions: ToggleOptionType[] = [
 
 interface UserPersonalDataRegistryProps {
   handleChange?: any;
+  errors?: any;
 };
 
-const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleChange }) => {
+const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleChange, errors }) => {
 
   const [toggleValue_1, SetToggleValue_1] = useState("")
   const [toggleValue_2, SetToggleValue_2] = useState("")
@@ -55,7 +56,8 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
            inputType={'text'} 
            inputName='namesurname'
            logo={icon_person}
-           onInputChange={(e: any)  => handleInputChange(e)} 
+           onInputChange={(e: any)  => handleInputChange(e)}
+           errors = { errors } 
         />  
 
         <TelInput 
@@ -68,6 +70,7 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
            inputName='email'
            logo={icon_email} 
            onInputChange={(e: any)  => handleChange(e)} 
+           errors = { errors } 
         />
 
         {/* <AnimatedInput label={'Birthday / Doğum Tarihiniz'} inputType={'date'} logo={icon_date} /> */}
