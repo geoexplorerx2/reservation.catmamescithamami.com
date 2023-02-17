@@ -108,7 +108,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
   }, [errors])
   
   return (
-    <div className='flex justify-center'>
+    <div className='flex justify-center h-full overflow-y-scroll'>
      {updateStepsViews?.map((stepview: any, index: number) => (
       <>
         {

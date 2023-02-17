@@ -91,7 +91,7 @@ useEffect(() => {
 
 
 return (
-  <div className='w-full flex flex-col px-9 pt-5'>
+  <div className='w-full flex flex-col px-9 pt-5 h-[calc(100%_-_250px)] overflow-y-scroll'>
     {
       sampleQuestions.map(question => {
         const { title, subtitle, options, id, needsExplanation } = question
