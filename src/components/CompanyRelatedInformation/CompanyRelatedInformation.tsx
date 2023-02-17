@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import Modal from '../Modal/Modal';
 
-const CompanyRelatedInformation = () => {
+interface CompanyRelatedInformationType {
+  handleTermsOfServiceAcceptance: (e: boolean) => void
+}
+
+
+const CompanyRelatedInformation: FC<CompanyRelatedInformationType> = (props) => {
+  const { handleTermsOfServiceAcceptance } = props
   const [ isChecked, setIsChecked ] = useState<boolean>(false)
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,12 +20,14 @@ const CompanyRelatedInformation = () => {
   const closeModal = () => {
     if(isModalOpen){
       setIsModalOpen(false)
+      
     }
   }
 
   const acceptAndClose = () => {
     setIsModalOpen(false)
     setIsChecked(true)
+    handleTermsOfServiceAcceptance(true)
     
   }
 
