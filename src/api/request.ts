@@ -17,7 +17,7 @@ const doRequest = (request: any): Promise<HTTPResponse> => {
     if (
         request.method !== "GET" && 
         request.method !== "DELETE" && 
-        request.headers.hasOwnProperty("Content-Type")
+        !request.headers.hasOwnProperty("Content-Type")
     ) {
         // request.headers["Content-Type"] = "application/x-www-form-urlencoded";
         request.headers["Content-Type"] = "application/json";
