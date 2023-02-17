@@ -81,7 +81,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
 
     };
 
-    console.log('the registryData', registryData)
+    // console.log('the registryData', registryData)
     // service call 
     if (completedSteps?.length == 3 && Object.keys(errors).length === 0) {
       server.registry(
@@ -116,7 +116,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError }) => {
           // STEPPER_VIEWS.includes(stepview) && 
           STEPPER_VIEWS.indexOf(stepview.view) == 0 &&
           stepview.display &&
-          <UserPersonalDataRegistry handleChange = {(event: any, type: any) => handleChange(event, type) } errors = { errors } />
+          <UserPersonalDataRegistry handleChange = {(event: any, type: any) => handleChange(event, type) } errors = { errors } values={values} />
         }
         {
           // STEPPER_VIEWS.includes(stepview) && 
