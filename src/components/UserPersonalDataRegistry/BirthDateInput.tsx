@@ -37,11 +37,11 @@ const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputN
 
   const Focus = () => {
     setIsFocused(true);
-  }
+  };
 
   const onBlur = () => {
     setIsFocused(false);
-  }
+  };
 
   useEffect(() => {
     console.log('this is the slected Date,', selectedDate)

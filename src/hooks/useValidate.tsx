@@ -1,9 +1,9 @@
 const useValidate = (values: any, type: any) => {
     let errors: any = {};
     switch (type) {
-        case 'userpersonalinformation':
-            if (!values.namesurname) {
-                errors.namesurname = 'Name Surname is required';
+        case 'userpersonaldataregistry':
+            if(!values.namesurname){
+                errors.namesurname = 'Name surname is required';
             };
 
             if (!values.telephone) {
@@ -29,6 +29,15 @@ const useValidate = (values: any, type: any) => {
             }
 
             break;
+        // case 'userhealthinformationregistry' :
+        //     if(values.covid_note && !values.covid_note) {
+        //         errors.covid_note = 'Please provide explanation'
+        //     }
+        //     if() {
+
+        //     }
+            
+            
         default:
             break;
     };

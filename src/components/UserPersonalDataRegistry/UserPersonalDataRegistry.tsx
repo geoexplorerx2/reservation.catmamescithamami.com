@@ -48,7 +48,7 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
   };
 
   return (
-    <div className='container font-poppins'>
+    <div className='container font-poppins h-[calc(100%_-_250px)] overflow-y-scroll'>
       <form className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 mt-8'>
 
         <AnimatedInput

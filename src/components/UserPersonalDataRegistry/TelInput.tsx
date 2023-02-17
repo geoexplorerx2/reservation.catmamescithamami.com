@@ -27,15 +27,15 @@ const TelInput: FC<TelInputProps> = ({ onInputChange, errors, inputName }) => {
     console.log('phone :', phone)
     setInputValue(e);
     onInputChange && onInputChange(e);
-  }
+  };
 
   const onFocus = () => {
     setIsFocused(true);
-  }
+  };
 
   const onBlur = () => {
     setIsFocused(false);
-  }
+  };
 
   useEffect(() => {
     console.log('focus is: ', isFocused);
@@ -71,4 +71,4 @@ const TelInput: FC<TelInputProps> = ({ onInputChange, errors, inputName }) => {
   )
 }
 
-export default TelInput
+export default TelInput;

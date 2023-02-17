@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import Modal from '../Modal/Modal';
 
-const CompanyRelatedInformation = () => {
+interface CompanyRelatedInformationType {
+  handleTermsOfServiceAcceptance: (e: boolean) => void
+}
+
+
+const CompanyRelatedInformation: FC<CompanyRelatedInformationType> = (props) => {
+  const { handleTermsOfServiceAcceptance } = props
   const [ isChecked, setIsChecked ] = useState<boolean>(false)
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,12 +20,14 @@ const CompanyRelatedInformation = () => {
   const closeModal = () => {
     if(isModalOpen){
       setIsModalOpen(false)
+      
     }
   }
 
   const acceptAndClose = () => {
     setIsModalOpen(false)
     setIsChecked(true)
+    handleTermsOfServiceAcceptance(true)
     
   }
 
@@ -90,7 +98,7 @@ const CompanyRelatedInformation = () => {
   }
 
   return (
-    <div className='container font-poppins'>
+    <div className='container font-poppins h-[calc(100%_-_250px)] overflow-y-scroll'>
       <p className='font-bold py-6'>English</p>
       <p className='mb-4 text-sm'>
         So when is it okay to use lorem ipsum? First, lorem ipsum works well for staging. It's like the props in a furniture store—filler text makes it look like someone is home. The same Wordpress template might eventually be home to a fitness blog, a photography website, or the online journal of a cupcake fanatic. Lorem ipsum helps them imagine what the lived-in website might look like.
