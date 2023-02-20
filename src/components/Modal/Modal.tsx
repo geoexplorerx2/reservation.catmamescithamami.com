@@ -33,11 +33,11 @@ const Modal: FC<ModalType> = ({ show, children, closeModal, modalPanelClassNames
       }, [show]);
 
     return (
-        <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-25 transition-opacity duration-500 ${show ? 'block opacity-100 z-10' : 'z-[-1] opacity-0 '}`} ref={overlayRef}>
+        <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-25 transition-opacity duration-500 ${show ? 'block opacity-100 z-30' : 'z-[-1] opacity-0 '}`} ref={overlayRef}>
        
         <section className={`${modalPanelClassNames} fixed bg-white w-4/5 max-h-[90vh] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-2 rounded-[10px] transition-all`} ref={modalPanelRef}>
          <div className='absolute top-0 right-0 w-10 h-10 flex justify-center items-center border rounded-full  bg-white text-[#800000] text-3xl translate-x-1/2 -translate-y-1/2' onClick={closeModal}> X </div>
-            <div className='w-full max-h-[80vh] overflow-y-scroll mb-4'>
+            <div className='w-full max-h-[80vh] overflow-y-scroll mb-4 scrollbar-hide'>
               {children}
             </div>
         </section>
