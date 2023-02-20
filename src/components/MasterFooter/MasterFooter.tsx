@@ -91,7 +91,7 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, compl
                     onClick={() => goToPrevStep()}
                   >
                     <span className="text-[16px] text-[#800000] font-poppins font-semibold leading-[24px]">
-                      {t("previous")}
+                      {t("PREVIOUS")}
                     </span>
                   </ButtonPrimary>
               }
@@ -103,7 +103,7 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, compl
                 onClick={() => handleStepper('next')}
               >
                 <span className="text-[16px] text-[#FFFFFF] font-poppins font-semibold leading-[24px]">
-                  {currentStep === 3 ? t("Submit") : t("continue")}
+                  {currentStep === 3 ? t("Submit") : t("CONTINUE")}
                 </span>
               </ButtonPrimary>
             </div>
