@@ -18,3 +18,13 @@ progress[value] {
     background-color: #800000;
     transition: all 0.7s;
   }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+}
