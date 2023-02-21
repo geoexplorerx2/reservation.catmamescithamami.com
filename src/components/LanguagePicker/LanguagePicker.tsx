@@ -106,7 +106,7 @@ const LanguagePicker: FC<LanguagePickerProps> = ({openDropdownMenu, setOpenDropd
         >
             <ButtonPrimary
                type="button"
-               className='w-[240px] h-[60px] bg-[#EEEEEE] rounded-[10px]'
+               className='w-[140px] sm:w-[240px] h-[60px] bg-[#EEEEEE] rounded-[10px]'
                onClick={() => setOpenDropdownMenu(true)}
             >
                 <span className="text-[16px] text-[#800000] font-poppins font-semibold leading-[24px]">
@@ -131,7 +131,7 @@ const LanguagePicker: FC<LanguagePickerProps> = ({openDropdownMenu, setOpenDropd
         >
           <Popover.Panel
             static
-            className="sub-menu will-change-transform absolute transform z-60 w-[260px] pt-3 right-0"
+            className="sub-menu will-change-transform absolute transform z-60 w-[260px] pt-3 -left-20 sm:left-auto right-auto sm:right-0"
           >
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 dark:ring-white dark:ring-opacity-10 text-sm relative bg-white dark:bg-neutral-900 py-2 grid grid-cols-2 gap-2">
              {
