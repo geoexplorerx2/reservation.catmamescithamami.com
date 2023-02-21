@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useIsMobile, useStepper } from '../../hooks';
 import ButtonPrimary from '../../lib/Button/ButtonPrimary';
 import { STEPPER_VIEWS } from '../constants';
+import Spinner from '../Spinner/Spinner';
 
 interface MasterFooterProps {
   onStepViewChange?: Function;
@@ -12,6 +13,7 @@ interface MasterFooterProps {
 
 const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, completeRegistry}) => {
 	const [currentStep, setCurrentStep] = useState<number>(1);
+  const [ isLoading, setIsLoading ] = useState<boolean>(false)
   const isMobile = useIsMobile();
 
   // @ts-ignore
@@ -44,7 +46,9 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, compl
   const handleStepper = async (type: string) => {
     const isCompleteRegistrationStep = currentStep === 3
     if(isCompleteRegistrationStep){
+     setIsLoading(true)
      const response = await completeRegistry()
+     setIsLoading(false)
      console.log('this is the response: ', response)
      const wasRegistrationSucccessfull = response?.status === 200;
      if(wasRegistrationSucccessfull){
@@ -99,11 +103,17 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, compl
             <div className='w-full flex justify-end'>
               <ButtonPrimary
                 type="button"
-                className={`${currentStep == 1 ? 'w-full h-[60px] bg-[#800000] rounded-[10px]' : 'w-full max-w-[500px] h-[60px] bg-[#800000] rounded-[10px]'}`}
+                className={`${currentStep == 1 ? 'w-full h-[60px] bg-[#800000] rounded-[10px]' : 'w-full max-w-[500px] h-[60px] bg-[#800000] rounded-[10px]'} max-h-[48px]`}
                 onClick={() => handleStepper('next')}
               >
                 <span className="text-[16px] text-[#FFFFFF] font-poppins font-semibold leading-[24px]">
-                  {currentStep === 3 ? t("Submit") : t("CONTINUE")}
+                  {
+                    isLoading 
+                    ?
+                     <Spinner />
+                    : 
+                     currentStep === 3 ? t("Submit") : t("CONTINUE")
+                  }
                 </span>
               </ButtonPrimary>
             </div>
