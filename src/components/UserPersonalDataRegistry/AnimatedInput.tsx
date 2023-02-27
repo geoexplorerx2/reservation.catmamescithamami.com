@@ -1,4 +1,6 @@
 import React, { FC, InputHTMLAttributes, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
+import { toTranslationFormat } from '../../helpers';
 
 interface InfoProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -15,7 +17,7 @@ const AnimatedInput: FC<InfoProps> = (props) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
-
+  const { t } = useTranslation()
   const errorKeys = Object.keys(errors);
 
   const onChange = (e: any) => {
@@ -62,7 +64,7 @@ const AnimatedInput: FC<InfoProps> = (props) => {
         inputName &&
         errorKeys.includes(inputName) &&
         <div className='absolute top-[-25px] right-[7px] bg-[#800000] text-white py-1 px-2 rounded-md border-2 border-[#800000] text-xs'>
-          {errors[inputName]}
+           {t(toTranslationFormat(errors[inputName]))}
         </div>
       }
     </div>

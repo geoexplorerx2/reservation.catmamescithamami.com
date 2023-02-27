@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useIsMobile } from '../../hooks';
 import { ToggleOptionType } from '../../types'
 
@@ -31,7 +32,7 @@ const Toggle: FC<TooglePropsType> = (props) => {
     const { options: optionsFromProps, onChange, outerWrapperClassNames, labelClassNames, optionWrapperClassNames, defaultSelected, values } = props
     const [options, setOptions] = useState(optionsFromProps ?? sampleOptions)
     const isMobile = useIsMobile();
-
+    const { t } = useTranslation()
     const selectDefaultOption = () => {
         let selectedItemIndex: number;
         if(defaultSelected){
@@ -67,7 +68,7 @@ const Toggle: FC<TooglePropsType> = (props) => {
                 return (
                     <div className={`${optionWrapperClassNames} cursor-pointer h-full bg-transparent flex items-center justify-center relative z-10 transition-all py-3 md:px-11 whitespace-nowrap ${activeOption.value === options[index].value  ? 'text-white' : '' }`} onClick={() => {handleChange(option)}} key={id}>
                         <span className={`${labelClassNames}`}>
-                            {isMobile ? shortenedLabel : label}
+                            {isMobile ? t(shortenedLabel) : t(label)}
                         </span> 
                     </div>
 
