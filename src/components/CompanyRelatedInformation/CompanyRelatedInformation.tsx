@@ -1,4 +1,6 @@
+import { t } from 'i18next';
 import React, { useState, FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import Modal from '../Modal/Modal';
 
 interface CompanyRelatedInformationType {
@@ -10,6 +12,9 @@ const CompanyRelatedInformation: FC<CompanyRelatedInformationType> = (props) => 
   const { handleTermsOfServiceAcceptance } = props
   const [ isChecked, setIsChecked ] = useState<boolean>(false)
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false)
+  const { t } = useTranslation()
+
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // setIsChecked(e.target.checked)
     setIsModalOpen(true)
@@ -90,7 +95,7 @@ const CompanyRelatedInformation: FC<CompanyRelatedInformationType> = (props) => 
           {/* <button type="button" onClick={acceptAndClose} className='border border-[#800000] px-8 py-3 rounded-[10px] hover:bg-[#800000] hover:text-white'>
               Accept
           </button> */}
-          <span className='text-bold underline' onClick={acceptAndClose} >I hereby accept the terms and conditions.</span>
+          <span className='text-bold underline' onClick={acceptAndClose} >{t('I_HEREBY_ACCEPT_THE_TERMS_AND_CONDITIONS')}</span>
        </div>
 
       </div>
