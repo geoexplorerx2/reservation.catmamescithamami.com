@@ -43,6 +43,7 @@
    "PHONE_NUMBER_IS_REQUIRED": "Phone Number is required",
    "BIRTH_DATE_IS_REQUIRED": "Birth date is required",
    "PHONE_NUMBER":"Phone Number",
-   "I_HEREBY_ACCEPT_THE_TERMS_AND_CONDITIONS":"I hereby accept the terms and conditions BROTHER"
+   "I_HEREBY_ACCEPT_THE_TERMS_AND_CONDITIONS":"I hereby accept the terms and conditions",
+   "TERMS_OF_SERVICE": "Terms of Service brother"
    
 }
