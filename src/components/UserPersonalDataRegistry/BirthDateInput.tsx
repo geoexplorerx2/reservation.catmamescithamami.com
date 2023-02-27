@@ -3,6 +3,8 @@ import icon_date from "../../assets/icons/icon_4.svg";
 import { createStyles } from '@mantine/core';
 import { UiDatePicker } from '../../lib';
 import { ReactComponent as Excl_icon } from '../../assets/icons/exclamation-mark.svg';
+import { toTranslationFormat } from '../../helpers';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = createStyles((theme: any) => ({
   input: {
@@ -25,7 +27,7 @@ const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputN
 
   const [isFocused, setIsFocused] = useState(false);
   const [selectedDate, setSelectedDate] = useState()
-
+  const { t } = useTranslation()
   const errorKeys = Object.keys(errors)
 
   const DatepickerRef = useRef<HTMLInputElement>(null)
@@ -66,7 +68,7 @@ const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputN
         </div>
         <label className={`${values[inputName ?? ''] ? "-translate-y-5 " : ""} ${!isFocused ? "" : ""} text-xs transition ease-out font-semibold absolute z-[9]`}>
           <span>
-            Birth date
+            {t('DATE_OF_BIRTH')}
           </span>
         </label>
 
@@ -75,7 +77,7 @@ const BirthDateInput: FC<BirthDateInputProps> = ({ onInputChange, errors, inputN
         inputName && errorKeys.includes(inputName)
         &&
         <div className='absolute top-[-25px] right-[7px] bg-[#800000] text-white py-1 px-2 rounded-md border-2 border-[#800000] text-xs'>
-          {errors[inputName]}
+          {t(toTranslationFormat(errors[inputName]))}
         </div>
       }
     </div>

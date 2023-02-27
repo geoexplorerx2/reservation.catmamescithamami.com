@@ -1,4 +1,6 @@
 import React, { useState, useEffect, FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { toTranslationFormat } from '../../helpers';
 import { ToggleOptionType } from '../../types';
 import Toggle from '../Toogle/Toggle';
 
@@ -30,7 +32,7 @@ interface UserHealthInformationProps {
 const UserHealthInformation: FC<UserHealthInformationProps> = ({handleToggleChange}) => {
 
   const [answers, setAnswers] = useState<Answer[]>([])
-
+  const { t } = useTranslation()
 
   const handleChange = (question: Question, option: ToggleOptionType, explanation?: string) => {
 
@@ -101,10 +103,10 @@ return (
             <div className='flex items-center justify-between ' key={id}>
               <div className='flex flex-col'>
                 <span className='text-base font-semibold'>
-                  {title}
+                  {t(toTranslationFormat(title))}
                 </span>
                 <span className='text-xs text-normal'>
-                  {subtitle}
+                  {t(toTranslationFormat(subtitle))}
                 </span>
               </div>
               <Toggle 
@@ -133,16 +135,16 @@ return (
 
 const sampleQuestions: Question[] = [
   {
-    title: 'Heart Proplems',
+    title: 'Heart Problems',
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -155,12 +157,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -173,12 +175,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -191,12 +193,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -205,16 +207,16 @@ const sampleQuestions: Question[] = [
     id: 'asthma'
   },
   {
-    title: 'Vertebral Proplems',
+    title: 'Vertebral Problems',
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -227,12 +229,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -245,12 +247,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -263,12 +265,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -281,12 +283,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -299,12 +301,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -317,12 +319,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -335,12 +337,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -353,12 +355,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -371,12 +373,12 @@ const sampleQuestions: Question[] = [
     subtitle: '',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -389,12 +391,12 @@ const sampleQuestions: Question[] = [
     subtitle: 'If yes, please provide the date.',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
@@ -409,12 +411,12 @@ const sampleQuestions: Question[] = [
     subtitle: 'If yes, please explain the type of the surgery and the date.',
     options: [
       {
-        label: 'Yes / Evet',
+        label: 'Yes',
         value: 'yes',
         id: '1'
       },
       {
-        label: 'No / Hayır',
+        label: 'No',
         value: 'no',
         id: '2'
 
