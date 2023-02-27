@@ -44,6 +44,9 @@
    "BIRTH_DATE_IS_REQUIRED": "Birth date is required",
    "PHONE_NUMBER":"Phone Number",
    "I_HEREBY_ACCEPT_THE_TERMS_AND_CONDITIONS":"I hereby accept the terms and conditions",
-   "TERMS_OF_SERVICE": "Terms of Service brother"
+   "TERMS_OF_SERVICE": "Terms of Service",
+   "THANKS_FOR_YOUR_INTEREST_!": "Thanks for your interest !",
+   "MAKE_A_NEW_RESERVATION": "Make a New Reservation"
+
    
 }
