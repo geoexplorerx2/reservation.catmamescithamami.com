@@ -8,10 +8,11 @@ import Spinner from '../Spinner/Spinner';
 interface MasterFooterProps {
   onStepViewChange?: Function;
   hasErrors?: any;
-  completeRegistry?: any
+  completeRegistry?: any;
+  onContinueClick?: any;
 };
 
-const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, completeRegistry}) => {
+const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, completeRegistry, onContinueClick}) => {
 	const [currentStep, setCurrentStep] = useState<number>(1);
   const [ isLoading, setIsLoading ] = useState<boolean>(false)
   const isMobile = useIsMobile();
@@ -25,6 +26,7 @@ const MasterFooter: FC<MasterFooterProps> = ({onStepViewChange, hasErrors, compl
   });
     
   const goToNextStep = (type: string) => {
+    onContinueClick && onContinueClick(true);
     if(Object.keys(hasErrors).length === 0){
       let nextStep = currentStep;
       type == 'next' ? nextStep++ : nextStep--;
