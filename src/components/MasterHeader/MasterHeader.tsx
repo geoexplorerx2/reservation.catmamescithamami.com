@@ -17,8 +17,8 @@ const MasterHeader: FC<MasterHeaderProps> = (props) => {
   const isLastStep = stepsState?.find((step: any) => step?.view === 'Registry End')?.display
 
   return (
-    <div className={`${ isLastStep ? 'hidden' : '' } z-30 w-full h-[180px] sm:h-[150px] sticky top-0 left-0 backdrop-blur-2xl bg-[#FFFFFF] bg-opacity-70 shadow-md backdrop-filter`}>
-        <div className="container flex flex-col sm:flex-row items-center justify-between">
+    <div className={`${ isLastStep ? 'hidden' : '' } z-30 w-full sm:h-[150px] sticky top-0 left-0 backdrop-blur-2xl bg-[#FFFFFF] bg-opacity-70 shadow-md backdrop-filter`}>
+        <div className="container flex flex-row items-center justify-between">
             <div className='py-4 sm:py-9'>
               <Logo img= { catmamescithammamLogo }   />
             </div>
