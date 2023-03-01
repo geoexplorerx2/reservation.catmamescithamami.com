@@ -9,6 +9,8 @@ import { Homepage } from './views';
 function App() {
   const [updateStepsViews, setUpdateStepsViews] = useState<any>();
   const [hasErrors, setHasErrors] = useState<any>();
+  const [continueClick, setContinueClick] = useState(false);
+  
   const server = services;
   const activeStep = updateStepsViews?.find((step: any) => step.completed == false && step.display == true)
   const activeStepFormatted = activeStep?.view.toLowerCase().replaceAll(' ', '')
@@ -111,13 +113,14 @@ function App() {
       <Homepage updateStepsViews={updateStepsViews}
         // onError = {(errors: any) => setHasErrors(errors)}
         handleChange={handleChange}
-        errors={errors}
+        errors={continueClick && errors}
         values={values}
       />
       <MasterFooter 
         onStepViewChange={(updatestepviews: any) => setUpdateStepsViews(updatestepviews)} 
         hasErrors={hasErrors} 
         completeRegistry={completeRegistration} 
+        onContinueClick={(nextClick: any) => setContinueClick(nextClick)}
       />
     </div>
   );
