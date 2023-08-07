@@ -138,7 +138,7 @@ const Homepage: FC<HomepageProps> = ({ updateStepsViews, onError, handleChange, 
           // STEPPER_VIEWS.includes(stepview) && 
           STEPPER_VIEWS.indexOf(stepview.view) == 2 &&
           stepview.display &&
-          <CompanyRelatedInformation handleTermsOfServiceAcceptance={((e: boolean) => { handleChange(e, 'isTermsOfServiceAccepted') })} />
+          <CompanyRelatedInformation handleTermsOfServiceAcceptance={((e: boolean) => { handleChange(e, 'isTermsOfServiceAccepted') })} handleChange = {(event: any, type: any) => handleChange(event, type) } />
         }
         {
           // STEPPER_VIEWS.includes(stepview) && 

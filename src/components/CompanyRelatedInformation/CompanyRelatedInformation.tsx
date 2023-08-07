@@ -2,18 +2,19 @@ import { t } from 'i18next';
 import React, { useState, FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Modal from '../Modal/Modal';
+import SignatureInput from '../SignatureInput/SignatureInput';
 
 interface CompanyRelatedInformationType {
-  handleTermsOfServiceAcceptance: (e: boolean) => void
+  handleTermsOfServiceAcceptance: (e: boolean) => void;
+  handleChange : (event: any, type: any) => void
 }
 
 
 const CompanyRelatedInformation: FC<CompanyRelatedInformationType> = (props) => {
-  const { handleTermsOfServiceAcceptance } = props
+  const { handleTermsOfServiceAcceptance, handleChange: handleGlobalStateChange } = props
   const [ isChecked, setIsChecked ] = useState<boolean>(false)
   const [ isModalOpen, setIsModalOpen ] = useState<boolean>(false)
   const { t } = useTranslation()
-
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // setIsChecked(e.target.checked)
@@ -132,6 +133,7 @@ const CompanyRelatedInformation: FC<CompanyRelatedInformationType> = (props) => 
           </label>
           <Modal show={isModalOpen} closeModal={closeModal} children={<ModalContent />} />
       </div>
+      <SignatureInput onChange={(e: any, inputType: string) => {handleGlobalStateChange(e, inputType)}}  />
     </div>
   )
 }
