@@ -350,7 +350,7 @@ const CompanyRelatedInformation: FC<CompanyRelatedInformationType> = (props) => 
       <div className='w-full border-t border-[#CBCBCB] pt-4 my-4'>
         <label>
           <input id="termsOfService" type='checkbox' className='mr-4 rounded-full' checked={isChecked} onChange={handleChange} />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam corporis sint quia minus facilis itaque? Molestias placeat, eligendi consequuntur ut laborum voluptatum aliquam quam debitis. Eveniet nostrum fugit inventore nisi.
+            Your personal data will be used to process your order, support your experience on this website and for other purposes described on our privacy policy page.
         </label>
         <Modal show={isModalOpen} closeModal={closeModal} children={<ModalContent />} />
       </div>
