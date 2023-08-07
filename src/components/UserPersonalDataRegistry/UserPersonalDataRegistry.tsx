@@ -9,7 +9,7 @@ import AnimatedInput from './AnimatedInput';
 import TelInput from './TelInput';
 import { UiDatePicker } from '../../lib';
 import BirthDateInput from './BirthDateInput';
-
+import SignatureInput from '../SignatureInput/SignatureInput';
 
 interface UserPersonalDataRegistryProps {
   handleChange?: any;
@@ -37,23 +37,23 @@ const UserPersonalDataRegistry: FC<UserPersonalDataRegistryProps> = ({ handleCha
     handleChange && handleChange(event, inputType);
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     console.log('values', values)
-})
+  })
 
 
-const genderOptions: ToggleOptionType[] = [
-  {
-    label: t('MALE'),
-    value: 'yes',
-    id: '1',
-  },
-  {
-    label: t('FEMALE'),
-    value: 'no',
-    id: '2',
-  }
-];
+  const genderOptions: ToggleOptionType[] = [
+    {
+      label: t('MALE'),
+      value: 'yes',
+      id: '1',
+    },
+    {
+      label: t('FEMALE'),
+      value: 'no',
+      id: '2',
+    }
+  ];
 
   return (
     <div className='container font-poppins h-[calc(100%_-_250px)] overflow-y-scroll scrollbar-hide '>
@@ -104,7 +104,7 @@ const genderOptions: ToggleOptionType[] = [
               optionWrapperClassNames='px-5'
               onChange={(e: any) => handleInputChange(e.label?.toLowerCase(), 'gender')}
               values={values.gender}
-              defaultSelected= {values.gender === 'male' ? 'left' : 'right'}
+              defaultSelected={values.gender === 'male' ? 'left' : 'right'}
             //  onChange={(e)=> handleChange_1(e)} 
             />
           </div>
@@ -120,13 +120,14 @@ const genderOptions: ToggleOptionType[] = [
               optionWrapperClassNames='px-5'
               onChange={(e: any) => handleInputChange(e.label?.toLowerCase(), 'therapist')}
               values={values.gender}
-              defaultSelected= {values.therapist === 'male' ? 'left' : 'right'}
+              defaultSelected={values.therapist === 'male' ? 'left' : 'right'}
             //  onChange={(e)=> handleChange_2(e)} 
             />
           </div>
         </div>
-
       </form>
+      <div className='border border-gray rounded-lg bg-white col-span-2'>
+      </div>
     </div>
   )
 };

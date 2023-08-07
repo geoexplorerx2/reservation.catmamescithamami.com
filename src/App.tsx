@@ -60,6 +60,7 @@ function App() {
       covid_note: values?.covid_note ?? '',
       surgery: values?.surgery ?? 'no' ,
       surgery_note: values?.surgery_note ?? '',
+      signature: values?.signatureBase64Img ?? ''
       // isTermsOfServiceAccepted: values?.isTermsOfServiceAccepted ?? false
     };
 
