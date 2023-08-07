@@ -95,7 +95,6 @@ function App() {
 
   // handle submit 
   useEffect(() => {
-    console.log('here are the values: ', values)
     handleSubmit()
   }, [values]);
 
