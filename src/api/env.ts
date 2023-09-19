@@ -1,4 +1,4 @@
-const prod = "https://reservation.catmamescithamami.com/api";
+const prod = "http://127.0.0.1:8000/api";
 const test = "";
 
 const env = prod;
