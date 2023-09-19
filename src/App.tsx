@@ -32,14 +32,14 @@ function App() {
   
  
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
-  const Country = Countries.filter((item=>item.dial_code===values.telephone.split(' ')[0]))
+  const Country = Countries.filter((item=>item.dial_code===values?.telephone?.split(' ')[0]))
   
   // handle registry
   function _handleRegistry() {
     let registryData = {
       name_surname: values?.namesurname,
-      phone: `${values?.telephone.split(' ')[1]+values?.telephone.split(' ')[2]+values?.telephone.split(' ')[3]+values?.telephone.split(' ')[4]}`,
-      country: Country[0].name,
+      phone: `${((values?.telephone?.split(' ')[0]+' '+values?.telephone?.split(' ')[1]+' '+values?.telephone?.split(' ')[2]+' '+values?.telephone?.split(' ')[3]+' '+values?.telephone?.split(' ')[4])?.split('u'))[0]}`,
+      country: Country[0]?.name,
       email: values?.email,
       birthday: new Date(values?.bithdate).toLocaleDateString().replaceAll('/', '-') ,
       gender: values?.gender ?? 'female',
