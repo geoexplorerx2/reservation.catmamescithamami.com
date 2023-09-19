@@ -31,13 +31,12 @@ function App() {
   // }, [values])
 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
-
   // handle registry
   function _handleRegistry() {
     let registryData = {
       name_surname: values?.namesurname,
-      phone: values?.telephone,
-      country: values?.telephone.split(' ')[0],
+      phone: `${values?.telephone.split(' ')[1]+values?.telephone.split(' ')[2]+values?.telephone.split(' ')[3]+values?.telephone.split(' ')[4]}`,
+      country: `${values?.telephone.split(' ')[0]}`,
       email: values?.email,
       birthday: new Date(values?.bithdate).toLocaleDateString().replaceAll('/', '-') ,
       gender: values?.gender ?? 'female',
