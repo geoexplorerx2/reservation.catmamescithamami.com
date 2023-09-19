@@ -5,7 +5,7 @@ import { MasterFooter, MasterHeader } from './components';
 import { STEPPER_VIEWS } from './components/constants';
 import { useForm, useStepper, useValidate } from './hooks';
 import { Homepage } from './views';
-
+import {Countries} from './__Countries__'
 function App() {
   const [updateStepsViews, setUpdateStepsViews] = useState<any>();
   const [hasErrors, setHasErrors] = useState<any>();
@@ -29,14 +29,17 @@ function App() {
   // useEffect(() => {
   //   console.log('registryData values are: ', values)
   // }, [values])
-
+  
+ 
   const completedSteps = updateStepsViews && updateStepsViews?.filter((steps: any) => steps.selected);
+  const Country = Countries.filter((item=>item.dial_code===values.telephone.split(' ')[0]))
+  
   // handle registry
   function _handleRegistry() {
     let registryData = {
       name_surname: values?.namesurname,
       phone: `${values?.telephone.split(' ')[1]+values?.telephone.split(' ')[2]+values?.telephone.split(' ')[3]+values?.telephone.split(' ')[4]}`,
-      country: `${values?.telephone.split(' ')[0]}`,
+      country: Country[0].name,
       email: values?.email,
       birthday: new Date(values?.bithdate).toLocaleDateString().replaceAll('/', '-') ,
       gender: values?.gender ?? 'female',
