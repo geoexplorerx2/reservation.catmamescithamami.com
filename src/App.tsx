@@ -50,9 +50,24 @@ function App() {
     }
   }
 
+  let inputDate:any = new Date(values?.bithdate).toLocaleDateString(); // Assuming values.birthdate is a valid date string
+  let formattedDate:any = null
+  if (inputDate) {
+    // Split the date string into components
+    const [month, day, year] = inputDate?.split('/');
+  
+    // Ensure day and month have leading zeros
+    const formattedDay:any = day?.padStart(2, '0');
+    const formattedMonth:any = month?.padStart(2, '0');
+  
+    // Create a formatted date string in "day/month/year" format
+    formattedDate = `${formattedDay}/${formattedMonth}/${year}`;
+  
+    console.log(formattedDate?.replace(/\//g, '.'));
+  } else {
+    console.log("Invalid date");
+  }
 
-
-  console.log('Search::', __Number__Length__, 'length::', result)
   // handle registry
   function _handleRegistry() {
     let registryData = {
@@ -60,7 +75,7 @@ function App() {
       phone: '+' + Country[0].calling_code + ' ' + result,
       country: Country[0].country,
       email: values?.email,
-      birthday: new Date(values?.bithdate).toLocaleDateString().replaceAll('/', '-'),
+      birthday: formattedDate?.replace(/\//g, '.'),
       gender: values?.gender ?? 'female',
       therapist_gender: values?.therapist ?? 'female',
       heart_problems: values?.heart_problems ?? 'no',
